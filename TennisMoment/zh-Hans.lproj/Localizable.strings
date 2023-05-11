@@ -1,0 +1,110 @@
+/* 
+  Localizable.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+"Date" = "日期";
+"Place" = "地点";
+"Opponent" = "对手";
+"Home" = "首页";
+"Event" = "赛事";
+"Me" = "我的";
+"My Club" = "我的俱乐部";
+"SCHEDULE" = "赛程";
+"COMPLETED" = "已结束";
+"JOIN NOW" = "加入";
+"In Progress" = "进行中";
+"lastGameTime" = "距离上次比赛已过去 %d 天 %d 小时";
+"YearsPlayed" = "球龄";
+"Height" = "身高";
+"Width" = "体重";
+"Grip" = "握拍";
+"Backhand" = "反拍";
+"Current Points" = "积分";
+"SERVE" = "发球端";
+"RETURN" = "接发端";
+"ACES" = "ACES";
+"DOUBLE FAULTS" = "双误";
+"RETURN ACES" = "回发ACES";
+"1ST SERVE IN" = "一发成功率";
+"1ST SERVE WON" = "一发赢球率";
+"2ND SERVE IN" = "二发成功率";
+"2ND SERVE WON" = "二发赢球率";
+"BREAK POINT SAVED" = "破发点挽救成功率";
+"SERVE GAME WON" = "发球局胜率";
+"SERVE POINT WON" = "发球分胜率";
+"1ST RETURN IN" = "接一发成功率";
+"1ST RETURN WON" = "接一发赢球率";
+"2ND RETURN IN" = "接二发成功率";
+"2ND RETURN WON" = "接二发赢球率";
+"BREAK POINT CONVERT" = "破发点转化率";
+"RETURN GAME WON" = "接发球局胜率";
+"RETURN POINT WON" = "接发分胜率";
+"NET POINTS" = "网前得分";
+"UNFORCED ERRORS" = "非受迫性失误";
+"FOREHAND WINNERS" = "正手制胜分";
+"BACKHAND WINNERS" = "反手制胜分";
+"ACTIVITY" = "比赛结果";
+"STATS" = "生涯数据";
+"One-Handed" = "单手反拍";
+"Two-Handed" = "双手反拍";
+"RESULT" = "比分";
+"WINNERS" = "制胜分";
+"Round" = "轮次";
+"Result" = "比分";
+"UEs" = "非受迫性失误";
+"FH Winners" = "正手制胜分";
+"BH Winners" = "反手制胜分";
+"setResult" = "第 %d 盘";
+
+"To Serve" = "发球";
+"To Return" = "接发球";
+"GoldenGoal" = "金球";
+"hard" = "硬地";
+"grass" = "草地";
+"clay" = "红土";
+"Search" = "搜索";
+"ONGOING" = "已开赛";
+"Stats" = "技术统计";
+"Aces" = "Aces";
+"Double Faults" = "双发失误";
+"Return Aces" = "回发Aces";
+"1ST Serve In" = "一发成功率";
+"1ST Serve Won" = "一发得分率";
+"2ND Serve In" = "二发成功率";
+"2ND Serve Won" = "二发得分率";
+"Break Point Saved" = "破发点挽救成功率";
+"Serve Game Won" = "发球局胜率";
+"Serve Point Won" = "接发分胜率";
+"1ST Return In" = "接一发成功率";
+"1ST Return Won" = "接一发赢球率";
+"2ND Return In" = "接二发成功率";
+"2ND Return Won" = "接二发赢球率";
+"Break Point Convert" = "破发点转化率";
+"Return Game Won" = "接发球局胜率";
+"Return Point Won" = "接发分胜率";
+"Net Points" = "网前得分";
+"Unforce Errors" = "非受迫性失误";
+"Forehand Winners" = "正手制胜分";
+"Backhand Winners" = "反手制胜分";
+"Serve Stats" = "发球端技术统计";
+"Return Stats" = "接发端技术统计";
+"Continented" = "大陆式";
+"Eastern" = "东方式";
+"SemiWestern" = "半西式";
+"Western" = "西方式";
+
+"SET" = "盘";
+"GAME" = "局";
+"POINT" = "分";
+"ACE" = "ACE";
+"RETURN  ACE" = "回发ACE";
+"SERVE WINNER" = "发球直得";
+"SERVE  FAULT" = "发球失误";
+"UNFORCED ERROR" = "非受迫性失误";
+"NET POINT" = "网前得分";
+"FOREHAND WINNER" = "正手制胜分";
+"BACKHAND WINNER" = "反手制胜分";
+

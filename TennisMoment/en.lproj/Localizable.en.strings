@@ -1,0 +1,64 @@
+/* 
+  Localizable.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+
+"Date" = "Date";
+"Place" = "Place";
+"Opponent" = "Opponent";
+"Homw" = "Homw";
+"Event" = "Event";
+"Me" = "Me";
+"My Club" = "My Club";
+"SCHEDULE" = "SCHEDULE";
+"COMPLETED" = "COMPLETED";
+"JOIN NOW" = "JOIN NOW";
+"In Progress" = "In Progress";
+"days" = "days";
+"hours" = "hours";
+"since last match" = "since last match";
+"YearsPlayed" = "YearsPlayed";
+"Height" = "Height";
+"Width" = "Width";
+"Grip" = "Grip";
+"Backhand" = "Backhand";
+"Current Points" = "Current Points";
+"SERVE" = "SERVE";
+"RETURN" = "RETURN";
+"ACES" = "ACES";
+"DOUBLE FAULTS" = "DOUBLE FAULTS";
+"RETURN ACES" = "RETURN ACES";
+"1ST SERVE IN" = "1ST SERVE IN";
+"1ST SERVE WON" = "1ST SERVE WON";
+"2ND SERVE IN" = "2ND SERVE IN";
+"2ND SERVE WON" = "2ND SERVE WON";
+"BREAK POINT SAVED" = "BREAK POINT SAVED";
+"SERVE GAME WOM" = "SERVE GAME WOM";
+"SERVE POINT WOM" = "SERVE POINT WOM";
+"1ST RETURN IN" = "1ST RETURN IN";
+"1ST RETURN WON" = "1ST RETURN WON";
+"2ND RETURN IN" = "2ND RETURN IN";
+"2ND RETURN WON" = "2ND RETURN WON";
+"BREAK POINT CONVERT" = "BREAK POINT CONVERT";
+"RETURN GAME WOM" = "RETURN GAME WOM";
+"RETURN POINT WOM" = "RETURN POINT WOM";
+"NET POINTS" = "NET POINTS";
+"UNFORCED ERRORS" = "UNFORCED ERRORS";
+"FOREHAND WINNERS" = "FOREHAND WINNERS";
+"BACKHAND WINNERS" = "BACKHAND WINNERS";
+"ACTIVITY" = "ACTIVITY";
+"STATS" = "STATS";
+"One-Handed" = "One-Handed";
+"Two-Handed" = "Two-Handed";
+"RESULT" = "RESULT";
+"WINNERS" = "WINNERS";
+"Event" = "Event";
+"Round" = "Round";
+"Result" = "Result";
+"UES" = "UES";
+"FH WINNERS" = "FH WINNERS";
+"BH WINNERS" = "BH WINNERS";
+

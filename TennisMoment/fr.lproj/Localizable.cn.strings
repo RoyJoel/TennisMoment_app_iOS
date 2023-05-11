@@ -1,0 +1,62 @@
+/* 
+  Localizable.cn.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+
+"Date" = "日期";
+"Place" = "地点";
+"Opponent" = "对手";
+"Homw" = "首页";
+"Event" = "赛事";
+"Me" = "我的";
+"My Club" = "我的俱乐部";
+"SCHEDULE" = "赛程";
+"COMPLETED" = "已结束";
+"JOIN NOW" = "加入";
+"In Progress" = "进行中";
+"days" = "天";
+"hours" = "小时";
+"since last match" = "距离上次比赛";
+"YearsPlayed" = "球龄";
+"Height" = "身高";
+"Width" = "体重";
+"Grip" = "握拍";
+"Backhand" = "反拍";
+"Current Points" = "积分";
+"SERVE" = "发球端";
+"RETURN" = "接发端";
+"ACES" = "ACES";
+"DOUBLE FAULTS" = "双误";
+"RETURN ACES" = "回发ACES";
+"1ST SERVE IN" = "一发成功率";
+"1ST SERVE WON" = "一发赢球率";
+"2ND SERVE IN" = "二发成功率";
+"2ND SERVE WON" = "二发赢球率";
+"BREAK POINT SAVED" = "破发点挽救成功率";
+"SERVE GAME WON" = "发球局胜率";
+"SERVE POINT WON" = "发球分胜率";
+"1ST RETURN IN" = "接一发成功率";
+"1ST RETURN WON" = "接一发赢球率";
+"2ND RETURN IN" = "接二发成功率";
+"2ND RETURN WON" = "接二发赢球率";
+"BREAK POINT CONVERT" = "破发点转化率";
+"RETURN GAME WON" = "接发球局胜率";
+"RETURN POINT WON" = "接发分胜率";
+"NET POINTS" = "网前得分";
+"UNFORCED ERRORS" = "非受迫性失误";
+"FOREHAND WINNERS" = "正手制胜分";
+"BACKHAND WINNERS" = "反手制胜分";
+"ACTIVITY" = "比赛结果";
+"STATS" = "技术统计";
+"One-Handed" = "单手反拍";
+"Two-Handed" = "双手反拍";
+"RESULT" = "比分";
+"WINNERS" = "制胜分";
+"Round" = "轮次";
+"Result" = "比分";
+"UES" = "非受迫性失误";
+"FH WINNERS" = "正手制胜分";
+"BH WINNERS" = "反手制胜分";

@@ -1,0 +1,110 @@
+/* 
+  Localizable.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+
+"Date" = "Fecha";
+"Place" = "Lugar";
+"Opponent" = "Oponente";
+"Home" = "Casa";
+"Event" = "Evento";
+"Me" = "Yo";
+"My Club" = "Mi club";
+"SCHEDULE" = "Calendario";
+"COMPLETED" = "Completado";
+"JOIN NOW" = "Únete ahora";
+"In Progress" = "En progreso";
+"lastGameTime" = "Han pasado %d días y %d horas desde el último partido";
+"YearsPlayed" = "Años jugados";
+"Height" = "Altura";
+"Width" = "Peso";
+"Grip" = "Empuñadura";
+"Backhand" = "Revés";
+"Current Points" = "Puntos actuales";
+"SERVE" = "Saques";
+"RETURN" = "Devoluciones";
+"ACES" = "Aces";
+"DOUBLE FAULTS" = "Dobles faltas";
+"RETURN ACES" = "Aces de devolución";
+"1ST SERVE IN" = "1er saque adentro";
+"1ST SERVE WON" = "1er saque ganado";
+"2ND SERVE IN" = "2do saque adentro";
+"2ND SERVE WON" = "2do saque ganado";
+"BREAK POINT SAVED" = "Puntos de quiebre salvados";
+"SERVE GAME WON" = "Juegos de saque ganados";
+"SERVE POINT WON" = "Puntos de saque ganados";
+"1ST RETURN IN" = "1ra devolución adentro";
+"1ST RETURN WON" = "1ra devolución ganada";
+"2ND RETURN IN" = "2da devolución adentro";
+"2ND RETURN WON" = "2da devolución ganada";
+"BREAK POINT CONVERT" = "Puntos de quiebre convertidos";
+"RETURN GAME WON" = "Juegos de devolución ganados";
+"RETURN POINT WON" = "Puntos de devolución ganados";
+"NET POINTS" = "Puntos en la red";
+"UNFORCED ERRORS" = "Errores no forzados";
+"FOREHAND WINNERS" = "Ganadores de derecha";
+"BACKHAND WINNERS" = "Ganadores de revés";
+"ACTIVITY" = "Resultado del partido";
+"STATS" = "Estadísticas";
+"One-Handed" = "Un mano";
+"Two-Handed" = "Dos manos";
+"RESULT" = "Resultado";
+"WINNERS" = "Ganadores";
+"Round" = "Ronda";
+"Result" = "Resultado";
+"UEs" = "Errores no forzados";
+"FH Winners" = "Ganadores de derecha";
+"BH Winners" = "Ganadores de revés";
+"setResult" = "Set %d";
+
+"To Serve" = "Servir";
+"To Return" = "Volver";
+"GoldenGoal" = "Gol de Oro";
+"hard" = "duro";
+"grass" = "césped";
+"clay" = "arcilla";
+"Search" = "Buscar";
+"ONGOING" = "EN CURSO";
+"Stats" = "Estadísticas";
+"Aces" = "Aces";
+"Double Faults" = "Dobles Faltas";
+"Return Aces" = "Aces en Devolución";
+"1ST Serve In" = "1ER Saque Adentro";
+"1ST Serve Won" = "1ER Saque Ganado";
+"2ND Serve In" = "2DO Saque Adentro";
+"2ND Serve Won" = "2DO Saque Ganado";
+"Break Point Saved" = "Punto de Break Salvado";
+"Serve Game Won" = "Juego de Saque Ganado";
+"Serve Point Won" = "Punto de Saque Ganado";
+"1ST Return In" = "1RA Devolución Adentro";
+"1ST Return Won" = "1RA Devolución Ganada";
+"2ND Return In" = "2DA Devolución Adentro";
+"2ND Return Won" = "2DA Devolución Ganada";
+"Break Point Convert" = "Conversión de Punto de Break";
+"Return Game Won" = "Juego de Devolución Ganado";
+"Return Point Won" = "Punto de Devolución Ganado";
+"Net Points" = "Puntos en la Red";
+"Unforce Errors" = "Errores No Forzados";
+"Forehand Winners" = "Ganadores de Derecha";
+"Backhand Winners" = "Ganadores de Revés";
+"Serve Stats" = "Estadísticas de Saque";
+"Return Stats" = "Estadísticas de Devolución";
+"Continented" = "Continental";
+"Eastern" = "Este";
+"SemiWestern" = "Semi-Oeste";
+"Western" = "Oeste";
+
+"SET" = "SET";
+"GAME" = "JUEGO";
+"POINT" = "PUNTO";
+"ACE" = "ACE";
+"RETURN ACE" = "ACE EN DEVOLUCIÓN";
+"SERVE WINNER" = "GOLPE GANADOR DE SAQUE";
+"SERVE FAULT" = "FALLO DE SAQUE";
+"UNFORCED ERROR" = "ERROR NO FORZADO";
+"NET POINT" = "PUNTO EN LA RED";
+"FOREHAND WINNER" = "GOLPE GANADOR DE DERECHA";
+"BACKHAND WINNER" = "GOLPE GANADOR DE REVÉS";

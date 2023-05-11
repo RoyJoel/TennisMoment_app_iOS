@@ -1,0 +1,111 @@
+/* 
+  Localizable.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+"Date" = "Date";
+"Place" = "Place";
+"Opponent" = "Opponent";
+"Home" = "Home";
+"Event" = "Event";
+"Me" = "Me";
+"My Club" = "My Club";
+"SCHEDULE" = "SCHEDULE";
+"COMPLETED" = "COMPLETED";
+"JOIN NOW" = "JOIN NOW";
+"In Progress" = "In Progress";
+"lastGameTime" = "%d days %d hours since last match";
+"YearsPlayed" = "YearsPlayed";
+"Height" = "Height";
+"Width" = "Width";
+"Grip" = "Grip";
+"Backhand" = "Backhand";
+"Current Points" = "Current Points";
+"SERVE" = "SERVE";
+"RETURN" = "RETURN";
+"ACES" = "ACES";
+"DOUBLE FAULTS" = "DOUBLE FAULTS";
+"RETURN ACES" = "RETURN ACES";
+"1ST SERVE IN" = "1ST SERVE IN";
+"1ST SERVE WON" = "1ST SERVE WON";
+"2ND SERVE IN" = "2ND SERVE IN";
+"2ND SERVE WON" = "2ND SERVE WON";
+"BREAK POINT SAVED" = "BREAK POINT SAVED";
+"SERVE GAME WOM" = "SERVE GAME WOM";
+"SERVE POINT WOM" = "SERVE POINT WOM";
+"1ST RETURN IN" = "1ST RETURN IN";
+"1ST RETURN WON" = "1ST RETURN WON";
+"2ND RETURN IN" = "2ND RETURN IN";
+"2ND RETURN WON" = "2ND RETURN WON";
+"BREAK POINT CONVERT" = "BREAK POINT CONVERT";
+"RETURN GAME WOM" = "RETURN GAME WOM";
+"RETURN POINT WOM" = "RETURN POINT WOM";
+"NET POINTS" = "NET POINTS";
+"UNFORCED ERRORS" = "UNFORCED ERRORS";
+"FOREHAND WINNERS" = "FOREHAND WINNERS";
+"BACKHAND WINNERS" = "BACKHAND WINNERS";
+"ACTIVITY" = "ACTIVITY";
+"STATS" = "STATS";
+"One-Handed" = "One-Handed";
+"Two-Handed" = "Two-Handed";
+"RESULT" = "RESULT";
+"WINNERS" = "WINNERS";
+"Event" = "Event";
+"Round" = "Round";
+"Result" = "Result";
+"UEs" = "UEs";
+"FH Winners" = "FH Winners";
+"BH Winners" = "BH Winners";
+"setResult" = "SET %d";
+
+"To Serve" = "To Serve";
+"To Return" = "To Return";
+"GoldenGoal" = "GoldenGoal";
+"hard" = "hard";
+"grass" = "grass";
+"clay" = "clay";
+"Search" = "Search";
+"ONGOING" = "ONGOING";
+"Stats" = "Stats";
+"Aces" = "Aces";
+"Double Faults" = "Double Faults";
+"Return Aces" = "Return Aces";
+"1ST Serve In" = "1ST Serve In";
+"1ST Serve Won" = "1ST Serve Won";
+"2ND Serve In" = "2ND Serve In";
+"2ND Serve Won" = "2ND Serve Won";
+"Break Point Saved" = "BREAK Point Saved";
+"Serve Game Won" = "Serve Game Won";
+"Serve Point Won" = "Serve Point Won";
+"1ST Return In" = "1ST Return In";
+"1ST Return Won" = "1ST Return Won";
+"2ND Return In" = "2ND Return In";
+"2ND Return Won" = "2ND Return Won";
+"Break Point Convert" = "Break Point Convert";
+"Return Game Won" = "Return Game Won";
+"Return Point Won" = "Return Point Won";
+"Net Points" = "Net Points";
+"Unforce Errors" = "Unforce Errors";
+"Forehand Winners" = "Forehand Winners";
+"Backhand Winners" = "Backhand Winners";
+"Serve Stats" = "Serve Stats";
+"Return Stats" = "Return Stats";
+"Continented" = "Continented";
+"Eastern" = "Eastern";
+"SemiWestern" = "SemiWestern";
+"Western" = "Western";
+
+"SET" = "SET";
+"GAME" = "GAME";
+"POINT" = "POINT";
+"ACE" = "ACE";
+"RETURN  ACE" = "RETURN  ACE";
+"SERVE WINNER" = "SERVE WINNER";
+"SERVE  FAULT" = "SERVE  FAULT";
+"UNFORCED ERROR" = "UNFORCED ERROR";
+"NET POINT" = "NET POINT";
+"FOREHAND WINNER" = "FOREHAND WINNER";
+"BACKHAND WINNER" = "BACKHAND WINNER";
+

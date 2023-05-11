@@ -1,0 +1,111 @@
+/* 
+  Localizable.strings
+  TennisMoment
+
+  Created by Jason Zhang on 2023/3/30.
+  
+*/
+"Date" = "Datum";
+"Place" = "Ort";
+"Opponent" = "Gegner";
+"Home" = "Startseite";
+"Event" = "Veranstaltung";
+"Me" = "Ich";
+"My Club" = "Mein Club";
+"SCHEDULE" = "Spielplan";
+"COMPLETED" = "Beendet";
+"JOIN NOW" = "Beitreten";
+"In Progress" = "In Bearbeitung";
+"lastGameTime" = "Seit dem letzten Spiel sind %d Tage und %d Stunden vergangen";
+"YearsPlayed" = "Jahre gespielt";
+"Height" = "Größe";
+"Width" = "Gewicht";
+"Grip" = "Griff";
+"Backhand" = "Rückhand";
+"Current Points" = "Aktuelle Punkte";
+"SERVE" = "Aufschlag";
+"RETURN" = "Rückhand";
+"ACES" = "Asses";
+"DOUBLE FAULTS" = "Doppelfehler";
+"RETURN ACES" = "Rückhandass";
+"1ST SERVE IN" = "Erster Aufschlag im Feld";
+"1ST SERVE WON" = "Erster Aufschlag gewonnen";
+"2ND SERVE IN" = "Zweiter Aufschlag im Feld";
+"2ND SERVE WON" = "Zweiter Aufschlag gewonnen";
+"BREAK POINT SAVED" = "Break-Punkte gerettet";
+"SERVE GAME WON" = "Spiel gewonnen (Aufschlag)";
+"SERVE POINT WON" = "Punkt gewonnen (Aufschlag)";
+"1ST RETURN IN" = "Erste Rückhand erfolgreich";
+"1ST RETURN WON" = "Erste Rückhand gewonnen";
+"2ND RETURN IN" = "Zweite Rückhand erfolgreich";
+"2ND RETURN WON" = "Zweite Rückhand gewonnen";
+"BREAK POINT CONVERT" = "Break-Punkte umgewandelt";
+"RETURN GAME WON" = "Spiel gewonnen (Rückhand)";
+"RETURN POINT WON" = "Punkt gewonnen (Rückhand)";
+"NET POINTS" = "Netzpunkte";
+"UNFORCED ERRORS" = "Ungezwungene Fehler";
+"FOREHAND WINNERS" = "Vorhandgewinner";
+"BACKHAND WINNERS" = "Rückhandgewinner";
+"ACTIVITY" = "Aktivität";
+"STATS" = "Statistiken";
+"One-Handed" = "Einhändig";
+"Two-Handed" = "Zweihändig";
+"RESULT" = "Ergebnis";
+"WINNERS" = "Gewinner";
+"Round" = "Runde";
+"Result" = "Ergebnis";
+"UEs" = "Ungezwungene Fehler";
+"FH Winners" = "Vorhandgewinner";
+"BH Winners" = "Rückhandgewinner";
+"setResult" = "Satz %d";
+
+"To Serve" = "Aufschlag";
+"To Return" = "Rückhand";
+"GoldenGoal" = "Golden Goal";
+"hard" = "Hartplatz";
+"grass" = "Grasplatz";
+"clay" = "Sandplatz";
+"Search" = "Suchen";
+"ONGOING" = "Läuft";
+"Stats" = "Statistiken";
+"Aces" = "Asses";
+"Double Faults" = "Doppelfehler";
+"Return Aces" = "Aufschlag Asse zurückgewonnen";
+"1ST Serve In" = "1. Aufschlag ins Feld";
+"1ST Serve Won" = "1. Aufschlag gewonnen";
+"2ND Serve In" = "2. Aufschlag ins Feld";
+"2ND Serve Won" = "2. Aufschlag gewonnen";
+"Break Point Saved" = "Breakpunkt abgewehrt";
+"Serve Game Won" = "Aufschlagspiel gewonnen";
+"Serve Point Won" = "Aufschlagpunkt gewonnen";
+"1ST Return In" = "1. Return ins Feld";
+"1ST Return Won" = "1. Return gewonnen";
+"2ND Return In" = "2. Return ins Feld";
+"2ND Return Won" = "2. Return gewonnen";
+"Break Point Convert" = "Breakpunkt genutzt";
+"Return Game Won" = "Returnspiel gewonnen";
+"Return Point Won" = "Returnpunkt gewonnen";
+"Net Points" = "Netzpunkte";
+"Unforce Errors" = "Ungezwungene Fehler";
+"Forehand Winners" = "Vorhandwinner";
+"Backhand Winners" = "Rückhandwinner";
+"Serve Stats" = "Aufschlagsstatistik";
+"Return Stats" = "Returnstatistik";
+"Continented" = "Kontinentalgriff";
+"Eastern" = "Östlicher Griff";
+"SemiWestern" = "Halbwestlicher Griff";
+"Western" = "Westlicher Griff";
+
+"SET" = "SATZ";
+"GAME" = "SPIEL";
+"POINT" = "PUNKT";
+"ACE" = "ASS";
+"RETURN ACE" = "RETURN-ASS";
+"SERVE WINNER" = "AUFSCHLAGWINNER";
+"SERVE FAULT" = "AUFSCHLAGFEHLER";
+"UNFORCED ERROR" = "UNGEZWUNGENER FEHLER";
+"NET POINT" = "NETZPUNKT";
+"FOREHAND WINNER" = "VORHANDWINNER";
+"BACKHAND WINNER" = "RÜCKHANDWINNER";
+
+
