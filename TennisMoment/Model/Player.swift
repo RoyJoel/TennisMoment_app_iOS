@@ -124,7 +124,7 @@ struct Player: Codable, Equatable {
     }
 }
 
-enum Sex: String, Codable {
+enum Sex: String, Codable, CaseIterable {
     case Man
     case Woman
 }

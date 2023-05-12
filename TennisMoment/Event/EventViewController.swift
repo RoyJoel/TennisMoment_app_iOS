@@ -12,7 +12,7 @@ import SwiftyJSON
 import TMComponent
 import UIKit
 
-class EventViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EventViewController: TMViewController, UITableViewDataSource, UITableViewDelegate {
     var clubs: [Club] = [Club(), Club(), Club(), Club(), Club(), Club()]
     lazy var clubListView: UITableView = {
         let tableView = UITableView()
@@ -26,10 +26,7 @@ class EventViewController: UIViewController, UITableViewDataSource, UITableViewD
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""
-        navigationController?.navigationBar.tintColor = UIColor(named: "ContentBackground")
 
-        view.backgroundColor = UIColor(named: "BackgroundGray")
         view.addSubview(clubListView)
         view.insertSubview(clubContentView, belowSubview: clubListView)
 

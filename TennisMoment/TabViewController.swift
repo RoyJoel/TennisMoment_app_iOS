@@ -11,6 +11,7 @@ import UIKit
 class TabViewController: UITabBarController {
     let homeVC = HomeViewController()
     let eventVC = EventViewController()
+    let shoppingVC = ShoppingViewController()
     let accountVC = AccountViewController()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,7 @@ class TabViewController: UITabBarController {
     private func addViewController() {
         setChildViewController(homeVC, NSLocalizedString("Home", comment: ""), "tennisball.fill")
         setChildViewController(eventVC, NSLocalizedString("Event", comment: ""), "trophy.fill")
+        setChildViewController(shoppingVC, NSLocalizedString("Shopping", comment: ""), "bag")
         setChildViewController(accountVC, NSLocalizedString("Me", comment: ""), "figure.tennis")
     }
 

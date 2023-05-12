@@ -26,6 +26,11 @@ extension UIView {
         layer.borderWidth = width
     }
 
+    func removeBorder() {
+        layer.borderColor = nil
+        layer.borderWidth = 0
+    }
+
     func addTapGesture(_ target: Any, _ action: Selector?) {
         let tap = UITapGestureRecognizer(target: target, action: action)
         addGestureRecognizer(tap)

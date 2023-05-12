@@ -10,7 +10,7 @@ import SwiftyJSON
 import TMComponent
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountViewController: TMViewController {
     lazy var settingView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "gearshape")
@@ -37,22 +37,9 @@ class AccountViewController: UIViewController {
         return dataView
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""
-        navigationController?.navigationBar.tintColor = UIColor(named: "ContentBackground")
 
-        view.backgroundColor = UIColor(named: "BackgroundGray")
         view.addSubview(settingView)
         view.addSubview(allHistoryGamesNavBtn)
         view.addSubview(iconView)

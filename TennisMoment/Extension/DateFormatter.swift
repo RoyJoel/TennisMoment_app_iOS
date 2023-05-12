@@ -8,7 +8,7 @@
 import Foundation
 
 extension TimeInterval {
-    func convertToString(formatterString: String) -> String {
+    func convertToString(formatterString: String = "yyyy MM-dd HH:mm") -> String {
         let formatter = DateFormatter()
         let date = Date(timeIntervalSince1970: self)
         formatter.dateFormat = formatterString

@@ -8,6 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		61D2F5EA2AAC5A77FE365BE8 /* Pods_TennisMoment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E8F5AB1C62345BB55F8C49C /* Pods_TennisMoment.framework */; };
+		A807FAAF2A0D2A06004AFA96 /* EDAddressRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807FAAE2A0D2A06004AFA96 /* EDAddressRequest.swift */; };
+		A807FAB12A0D354F004AFA96 /* TMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A807FAB02A0D354F004AFA96 /* TMViewController.swift */; };
+		A80BFFBC2A0D236100E201EB /* EDCommodityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA42A0D236000E201EB /* EDCommodityCell.swift */; };
+		A80BFFBD2A0D236100E201EB /* EDComIntroContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA52A0D236000E201EB /* EDComIntroContainerView.swift */; };
+		A80BFFBE2A0D236100E201EB /* EDBillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA62A0D236000E201EB /* EDBillingViewController.swift */; };
+		A80BFFBF2A0D236100E201EB /* EDAddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA72A0D236000E201EB /* EDAddressView.swift */; };
+		A80BFFC02A0D236100E201EB /* EDBillTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA82A0D236000E201EB /* EDBillTableViewController.swift */; };
+		A80BFFC12A0D236100E201EB /* EDComBillingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFA92A0D236000E201EB /* EDComBillingCell.swift */; };
+		A80BFFC22A0D236100E201EB /* EDConfigSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAA2A0D236000E201EB /* EDConfigSelectionViewController.swift */; };
+		A80BFFC32A0D236100E201EB /* EDFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAB2A0D236000E201EB /* EDFilterView.swift */; };
+		A80BFFC42A0D236100E201EB /* EDFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAC2A0D236000E201EB /* EDFlowLayout.swift */; };
+		A80BFFC52A0D236100E201EB /* EDBillVCView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAD2A0D236000E201EB /* EDBillVCView.swift */; };
+		A80BFFC62A0D236100E201EB /* EDCagCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAE2A0D236000E201EB /* EDCagCollectionViewLayout.swift */; };
+		A80BFFC72A0D236100E201EB /* EDComContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFAF2A0D236000E201EB /* EDComContentViewController.swift */; };
+		A80BFFC82A0D236100E201EB /* EDAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB02A0D236000E201EB /* EDAddressCell.swift */; };
+		A80BFFC92A0D236100E201EB /* EDCagSelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB12A0D236000E201EB /* EDCagSelectionCell.swift */; };
+		A80BFFCA2A0D236100E201EB /* EDAddressManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB22A0D236000E201EB /* EDAddressManagementViewController.swift */; };
+		A80BFFCB2A0D236100E201EB /* EDBillingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB32A0D236000E201EB /* EDBillingView.swift */; };
+		A80BFFCC2A0D236100E201EB /* EDQuantitySelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB42A0D236000E201EB /* EDQuantitySelectorView.swift */; };
+		A80BFFCD2A0D236100E201EB /* EDPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB52A0D236000E201EB /* EDPaymentView.swift */; };
+		A80BFFCE2A0D236100E201EB /* EDShoppingCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB62A0D236000E201EB /* EDShoppingCollectionView.swift */; };
+		A80BFFCF2A0D236100E201EB /* EDComImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB72A0D236000E201EB /* EDComImagesView.swift */; };
+		A80BFFD02A0D236100E201EB /* EDOrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB82A0D236000E201EB /* EDOrderDetailViewController.swift */; };
+		A80BFFD12A0D236100E201EB /* EDSelectionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFB92A0D236000E201EB /* EDSelectionCollectionView.swift */; };
+		A80BFFD22A0D236100E201EB /* EDAddressEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFBA2A0D236100E201EB /* EDAddressEditingViewController.swift */; };
+		A80BFFD32A0D236100E201EB /* EDDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFBB2A0D236100E201EB /* EDDeliveryViewController.swift */; };
+		A80BFFD52A0D23A500E201EB /* ShoppingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFD42A0D23A500E201EB /* ShoppingViewController.swift */; };
+		A80BFFDA2A0D240E00E201EB /* Commodity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFD62A0D240E00E201EB /* Commodity.swift */; };
+		A80BFFDB2A0D240E00E201EB /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFD72A0D240E00E201EB /* Bill.swift */; };
+		A80BFFDC2A0D240E00E201EB /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFD82A0D240E00E201EB /* Address.swift */; };
+		A80BFFDD2A0D240E00E201EB /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFD92A0D240E00E201EB /* Order.swift */; };
+		A80BFFDF2A0D257800E201EB /* EDEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80BFFDE2A0D257800E201EB /* EDEventView.swift */; };
 		A810F78E29ADEDB70044C424 /* TMPlayerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810F78D29ADEDB70044C424 /* TMPlayerRequest.swift */; };
 		A810F79129ADEEB20044C424 /* TMNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810F79029ADEEB20044C424 /* TMNetWork.swift */; };
 		A810F79429ADFF740044C424 /* TMUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A810F79329ADFF740044C424 /* TMUser.swift */; };
@@ -132,6 +164,38 @@
 		65C9541D0C33D53915F1AD3E /* Pods_TennisMoment_TennisMomentUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TennisMoment_TennisMomentUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70751DC2EB6DDD2A1654B4D2 /* Pods-TennisMomentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisMomentTests.debug.xcconfig"; path = "Target Support Files/Pods-TennisMomentTests/Pods-TennisMomentTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8D4B98FD99B9D3132560067F /* Pods-TennisMoment-TennisMomentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TennisMoment-TennisMomentUITests.debug.xcconfig"; path = "Target Support Files/Pods-TennisMoment-TennisMomentUITests/Pods-TennisMoment-TennisMomentUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A807FAAE2A0D2A06004AFA96 /* EDAddressRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDAddressRequest.swift; sourceTree = "<group>"; };
+		A807FAB02A0D354F004AFA96 /* TMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMViewController.swift; sourceTree = "<group>"; };
+		A80BFFA42A0D236000E201EB /* EDCommodityCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDCommodityCell.swift; sourceTree = "<group>"; };
+		A80BFFA52A0D236000E201EB /* EDComIntroContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDComIntroContainerView.swift; sourceTree = "<group>"; };
+		A80BFFA62A0D236000E201EB /* EDBillingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDBillingViewController.swift; sourceTree = "<group>"; };
+		A80BFFA72A0D236000E201EB /* EDAddressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDAddressView.swift; sourceTree = "<group>"; };
+		A80BFFA82A0D236000E201EB /* EDBillTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDBillTableViewController.swift; sourceTree = "<group>"; };
+		A80BFFA92A0D236000E201EB /* EDComBillingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDComBillingCell.swift; sourceTree = "<group>"; };
+		A80BFFAA2A0D236000E201EB /* EDConfigSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDConfigSelectionViewController.swift; sourceTree = "<group>"; };
+		A80BFFAB2A0D236000E201EB /* EDFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDFilterView.swift; sourceTree = "<group>"; };
+		A80BFFAC2A0D236000E201EB /* EDFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDFlowLayout.swift; sourceTree = "<group>"; };
+		A80BFFAD2A0D236000E201EB /* EDBillVCView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDBillVCView.swift; sourceTree = "<group>"; };
+		A80BFFAE2A0D236000E201EB /* EDCagCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDCagCollectionViewLayout.swift; sourceTree = "<group>"; };
+		A80BFFAF2A0D236000E201EB /* EDComContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDComContentViewController.swift; sourceTree = "<group>"; };
+		A80BFFB02A0D236000E201EB /* EDAddressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDAddressCell.swift; sourceTree = "<group>"; };
+		A80BFFB12A0D236000E201EB /* EDCagSelectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDCagSelectionCell.swift; sourceTree = "<group>"; };
+		A80BFFB22A0D236000E201EB /* EDAddressManagementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDAddressManagementViewController.swift; sourceTree = "<group>"; };
+		A80BFFB32A0D236000E201EB /* EDBillingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDBillingView.swift; sourceTree = "<group>"; };
+		A80BFFB42A0D236000E201EB /* EDQuantitySelectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDQuantitySelectorView.swift; sourceTree = "<group>"; };
+		A80BFFB52A0D236000E201EB /* EDPaymentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDPaymentView.swift; sourceTree = "<group>"; };
+		A80BFFB62A0D236000E201EB /* EDShoppingCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDShoppingCollectionView.swift; sourceTree = "<group>"; };
+		A80BFFB72A0D236000E201EB /* EDComImagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDComImagesView.swift; sourceTree = "<group>"; };
+		A80BFFB82A0D236000E201EB /* EDOrderDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDOrderDetailViewController.swift; sourceTree = "<group>"; };
+		A80BFFB92A0D236000E201EB /* EDSelectionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDSelectionCollectionView.swift; sourceTree = "<group>"; };
+		A80BFFBA2A0D236100E201EB /* EDAddressEditingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDAddressEditingViewController.swift; sourceTree = "<group>"; };
+		A80BFFBB2A0D236100E201EB /* EDDeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EDDeliveryViewController.swift; sourceTree = "<group>"; };
+		A80BFFD42A0D23A500E201EB /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
+		A80BFFD62A0D240E00E201EB /* Commodity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Commodity.swift; path = ../../../../EDMS/EDMS/Model/Commodity.swift; sourceTree = "<group>"; };
+		A80BFFD72A0D240E00E201EB /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bill.swift; path = ../../../../EDMS/EDMS/Model/Bill.swift; sourceTree = "<group>"; };
+		A80BFFD82A0D240E00E201EB /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = ../../../../EDMS/EDMS/Model/Address.swift; sourceTree = "<group>"; };
+		A80BFFD92A0D240E00E201EB /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../../../../EDMS/EDMS/Model/Order.swift; sourceTree = "<group>"; };
+		A80BFFDE2A0D257800E201EB /* EDEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EDEventView.swift; sourceTree = "<group>"; };
 		A810F78D29ADEDB70044C424 /* TMPlayerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPlayerRequest.swift; sourceTree = "<group>"; };
 		A810F79029ADEEB20044C424 /* TMNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNetWork.swift; sourceTree = "<group>"; };
 		A810F79329ADFF740044C424 /* TMUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUser.swift; sourceTree = "<group>"; };
@@ -298,9 +362,43 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		A80BFF432A0D221D00E201EB /* Shopping */ = {
+			isa = PBXGroup;
+			children = (
+				A80BFFB02A0D236000E201EB /* EDAddressCell.swift */,
+				A80BFFBA2A0D236100E201EB /* EDAddressEditingViewController.swift */,
+				A80BFFB22A0D236000E201EB /* EDAddressManagementViewController.swift */,
+				A80BFFA72A0D236000E201EB /* EDAddressView.swift */,
+				A80BFFB32A0D236000E201EB /* EDBillingView.swift */,
+				A80BFFA62A0D236000E201EB /* EDBillingViewController.swift */,
+				A80BFFA82A0D236000E201EB /* EDBillTableViewController.swift */,
+				A80BFFAD2A0D236000E201EB /* EDBillVCView.swift */,
+				A80BFFAE2A0D236000E201EB /* EDCagCollectionViewLayout.swift */,
+				A80BFFB12A0D236000E201EB /* EDCagSelectionCell.swift */,
+				A80BFFA92A0D236000E201EB /* EDComBillingCell.swift */,
+				A80BFFAF2A0D236000E201EB /* EDComContentViewController.swift */,
+				A80BFFB72A0D236000E201EB /* EDComImagesView.swift */,
+				A80BFFA52A0D236000E201EB /* EDComIntroContainerView.swift */,
+				A80BFFA42A0D236000E201EB /* EDCommodityCell.swift */,
+				A80BFFAA2A0D236000E201EB /* EDConfigSelectionViewController.swift */,
+				A80BFFBB2A0D236100E201EB /* EDDeliveryViewController.swift */,
+				A80BFFAB2A0D236000E201EB /* EDFilterView.swift */,
+				A80BFFAC2A0D236000E201EB /* EDFlowLayout.swift */,
+				A80BFFB82A0D236000E201EB /* EDOrderDetailViewController.swift */,
+				A80BFFB52A0D236000E201EB /* EDPaymentView.swift */,
+				A80BFFB42A0D236000E201EB /* EDQuantitySelectorView.swift */,
+				A80BFFB92A0D236000E201EB /* EDSelectionCollectionView.swift */,
+				A80BFFB62A0D236000E201EB /* EDShoppingCollectionView.swift */,
+				A80BFFD42A0D23A500E201EB /* ShoppingViewController.swift */,
+				A80BFFDE2A0D257800E201EB /* EDEventView.swift */,
+			);
+			path = Shopping;
+			sourceTree = "<group>";
+		};
 		A810F78C29ADED4C0044C424 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				A807FAAE2A0D2A06004AFA96 /* EDAddressRequest.swift */,
 				A810F78D29ADEDB70044C424 /* TMPlayerRequest.swift */,
 				A8ABA11629B059AB002F1632 /* TMGameRequest.swift */,
 				A83FAA6C29B341E900C17AE7 /* TMStatsRequest.swift */,
@@ -445,6 +543,7 @@
 				A8ABA0AD29B02BC4002F1632 /* Home */,
 				A8B7200929BACE9F00FD6400 /* Account */,
 				A8B1A09429C08E640084F9CE /* Event */,
+				A80BFF432A0D221D00E201EB /* Shopping */,
 				A87D6B4D29A5AC4D0001C59F /* TMScalableView.swift */,
 				A8C19DF9299E854E0011F37A /* TMNavigationBar.swift */,
 				A8C19DFC299E854E0011F37A /* TMNavigationController.swift */,
@@ -452,6 +551,7 @@
 				A8ABA11C29B06C4E002F1632 /* TMTextFieldConfig.swift */,
 				A8C19DF2299E854D0011F37A /* TMNavigationItem.swift */,
 				A8ABA11E29B0ACDA002F1632 /* testData.swift */,
+				A807FAB02A0D354F004AFA96 /* TMViewController.swift */,
 				A834D5D129B59970007FA84C /* Data */,
 				A810F79229ADFF450044C424 /* User */,
 				A810F78C29ADED4C0044C424 /* NetWork */,
@@ -504,6 +604,10 @@
 				A8C359FC29C6B56E009338A4 /* Event.swift */,
 				A8C35A0029C6BBAE009338A4 /* User.swift */,
 				A8C1052029D2BAB5003E225E /* Schedule.swift */,
+				A80BFFD82A0D240E00E201EB /* Address.swift */,
+				A80BFFD72A0D240E00E201EB /* Bill.swift */,
+				A80BFFD62A0D240E00E201EB /* Commodity.swift */,
+				A80BFFD92A0D240E00E201EB /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -814,25 +918,35 @@
 				A8D373AC29DEA323003ED78D /* BundleExtension.swift in Sources */,
 				A8B1A0A629C2BB780084F9CE /* TMplayerSelectionCell.swift in Sources */,
 				A8B7201729BAFED200FD6400 /* TMGameStatsView.swift in Sources */,
+				A80BFFCB2A0D236100E201EB /* EDBillingView.swift in Sources */,
 				A8FE6DFC29D95CCA0007C7C2 /* TMUDKeys.swift in Sources */,
+				A80BFFD22A0D236100E201EB /* EDAddressEditingViewController.swift in Sources */,
+				A80BFFC42A0D236100E201EB /* EDFlowLayout.swift in Sources */,
 				A83AAA2229A8DE2D0020483A /* ToastNotification.swift in Sources */,
+				A80BFFDF2A0D257800E201EB /* EDEventView.swift in Sources */,
 				A810F78E29ADEDB70044C424 /* TMPlayerRequest.swift in Sources */,
 				A8C359FF29C6B757009338A4 /* DateFormatter.swift in Sources */,
 				A8C6923129E3C64D0000DB0B /* TMPlayerSearchingView.swift in Sources */,
 				A8EC716D29E5024A009A5D51 /* DoubleExtension.swift in Sources */,
 				A8D373AA29DE9D99003ED78D /* TMSettingKeys.swift in Sources */,
+				A80BFFBC2A0D236100E201EB /* EDCommodityCell.swift in Sources */,
 				A8C35A0129C6BBAE009338A4 /* User.swift in Sources */,
 				A8C6923329E3C65E0000DB0B /* TMGameSearchingView.swift in Sources */,
 				A8EC716729E40653009A5D51 /* TMUnfinishedGameCell.swift in Sources */,
 				A8C1052129D2BAB5003E225E /* Schedule.swift in Sources */,
+				A80BFFCD2A0D236100E201EB /* EDPaymentView.swift in Sources */,
 				A890D7F929EB9E5700F50536 /* TMRankingView.swift in Sources */,
 				A850A94629E6B045000AC80C /* TMUserDataSelectViewController.swift in Sources */,
 				A879B09B29E2C94F006F48FE /* TMH2HViewController.swift in Sources */,
+				A80BFFDA2A0D240E00E201EB /* Commodity.swift in Sources */,
+				A80BFFD02A0D236100E201EB /* EDOrderDetailViewController.swift in Sources */,
 				A8C19E15299E8CE50011F37A /* AccountViewController.swift in Sources */,
 				A8ED766429D686BD005A6F23 /* TMSettingSelectionCell.swift in Sources */,
 				A850A94A29E79D2E000AC80C /* TMClubRequest.swift in Sources */,
 				A8EC716929E4F5BF009A5D51 /* TMCommonPlayerInfoTableViewCell.swift in Sources */,
+				A80BFFC62A0D236100E201EB /* EDCagCollectionViewLayout.swift in Sources */,
 				A8C19E17299E8CE50011F37A /* TabViewController.swift in Sources */,
+				A80BFFC82A0D236100E201EB /* EDAddressCell.swift in Sources */,
 				A810F79429ADFF740044C424 /* TMUser.swift in Sources */,
 				A8B1A09629C09F830084F9CE /* Club.swift in Sources */,
 				A810F79129ADEEB20044C424 /* TMNetWork.swift in Sources */,
@@ -840,6 +954,8 @@
 				A8B7201329BAFC2500FD6400 /* TMUserStatsView.swift in Sources */,
 				A8B7201129BAE60F00FD6400 /* TMUserDataView.swift in Sources */,
 				A8B7201929BDA72000FD6400 /* TMCircleStatsView.swift in Sources */,
+				A80BFFDD2A0D240E00E201EB /* Order.swift in Sources */,
+				A80BFFDB2A0D240E00E201EB /* Bill.swift in Sources */,
 				A8B1A09829C0A59C0084F9CE /* TMClubTableViewCell.swift in Sources */,
 				A8EC716B29E4F648009A5D51 /* TMCommonPlayerInfoViewController.swift in Sources */,
 				A83FAA6B29B33B1F00C17AE7 /* TMLocationManager.swift in Sources */,
@@ -852,39 +968,58 @@
 				A8C19E18299E8CE50011F37A /* UIStandard.swift in Sources */,
 				A8B7200F29BAD77000FD6400 /* TMUserInfoView.swift in Sources */,
 				A890D7F529EA418500F50536 /* TMUserAllHistoryGamesViewController.swift in Sources */,
+				A80BFFD12A0D236100E201EB /* EDSelectionCollectionView.swift in Sources */,
 				A8B9CD1729D5492D00D6EE0A /* TMSettingUserIconCell.swift in Sources */,
 				A8C1052529D31432003E225E /* TMMarkerAnnotationView.swift in Sources */,
 				A8C6922D29E39F660000DB0B /* TMH2HContentLabelCell.swift in Sources */,
 				A8B9CD1529D539DD00D6EE0A /* TMsettingTableViewCell.swift in Sources */,
 				A834D5D329B59A1F007FA84C /* TMDataConvert.swift in Sources */,
 				A86DE5D329D046DC00E8282A /* TMGameStatsDetailViewController.swift in Sources */,
+				A80BFFCF2A0D236100E201EB /* EDComImagesView.swift in Sources */,
+				A80BFFC32A0D236100E201EB /* EDFilterView.swift in Sources */,
+				A80BFFC72A0D236100E201EB /* EDComContentViewController.swift in Sources */,
 				A83FAA6D29B341E900C17AE7 /* TMStatsRequest.swift in Sources */,
 				A8ABA11F29B0ACDA002F1632 /* testData.swift in Sources */,
+				A80BFFCE2A0D236100E201EB /* EDShoppingCollectionView.swift in Sources */,
 				A8ABA11B29B06C43002F1632 /* TMTextField.swift in Sources */,
 				A834D5D529B5A37D007FA84C /* IntExtension.swift in Sources */,
 				A8B1A09C29C1E7FB0084F9CE /* TMTourView.swift in Sources */,
+				A80BFFBE2A0D236100E201EB /* EDBillingViewController.swift in Sources */,
 				A8FE6E1129DD93DC0007C7C2 /* TMDoubleSelectionView.swift in Sources */,
 				A83AAA2029A7820C0020483A /* TMScoreControllerView.swift in Sources */,
+				A80BFFC12A0D236100E201EB /* EDComBillingCell.swift in Sources */,
 				A8B9CD1329D5337900D6EE0A /* TMSettingViewController.swift in Sources */,
 				A83AAA1C29A7670D0020483A /* TMPointRecordView.swift in Sources */,
 				A8FE6E0729DA780B0007C7C2 /* TMSignInBtn.swift in Sources */,
 				A879B09D29E2E5A7006F48FE /* TMH2HRecordCell.swift in Sources */,
+				A80BFFBF2A0D236100E201EB /* EDAddressView.swift in Sources */,
+				A80BFFBD2A0D236100E201EB /* EDComIntroContainerView.swift in Sources */,
 				A83AAA1E29A769870020483A /* TMPointRecordViewConfig.swift in Sources */,
+				A80BFFCA2A0D236100E201EB /* EDAddressManagementViewController.swift in Sources */,
 				A8ABA11D29B06C4E002F1632 /* TMTextFieldConfig.swift in Sources */,
 				A8C19E04299E854E0011F37A /* TMNavigationBar.swift in Sources */,
 				A8FE6E0F29DD7DF90007C7C2 /* TMSelectionView.swift in Sources */,
 				A890D7F729EA436500F50536 /* TMHistoryGameCell.swift in Sources */,
+				A80BFFCC2A0D236100E201EB /* EDQuantitySelectorView.swift in Sources */,
+				A80BFFD52A0D23A500E201EB /* ShoppingViewController.swift in Sources */,
 				A8C19E13299E8CE50011F37A /* EventViewController.swift in Sources */,
+				A80BFFC92A0D236100E201EB /* EDCagSelectionCell.swift in Sources */,
 				A8B7201529BAFCC900FD6400 /* TMUserActivityView.swift in Sources */,
 				A8B1A09A29C0AA8F0084F9CE /* TMClubContentView.swift in Sources */,
 				A8D373AE29DFCE97003ED78D /* TMSettingInfoViewController.swift in Sources */,
 				A8C19E12299E8CE50011F37A /* HomeViewController.swift in Sources */,
 				A8C19DFD299E854E0011F37A /* TMNavigationItem.swift in Sources */,
+				A80BFFC02A0D236100E201EB /* EDBillTableViewController.swift in Sources */,
+				A80BFFDC2A0D240E00E201EB /* Address.swift in Sources */,
+				A807FAB12A0D354F004AFA96 /* TMViewController.swift in Sources */,
 				A8C19E03299E854E0011F37A /* UIViewExtension.swift in Sources */,
+				A80BFFD32A0D236100E201EB /* EDDeliveryViewController.swift in Sources */,
 				A8C19E07299E854E0011F37A /* TMNavigationController.swift in Sources */,
+				A80BFFC52A0D236100E201EB /* EDBillVCView.swift in Sources */,
 				A8C1051F29D28BE3003E225E /* TMUserScheduleView.swift in Sources */,
 				A890D7FB29EBA7B600F50536 /* TMRankingCell.swift in Sources */,
 				A8FE6E0D29DD776B0007C7C2 /* TMProgressView.swift in Sources */,
+				A807FAAF2A0D2A06004AFA96 /* EDAddressRequest.swift in Sources */,
 				A8C359FD29C6B56E009338A4 /* Event.swift in Sources */,
 				A8ED766229D68483005A6F23 /* TMSettingSelectionViewController.swift in Sources */,
 				A834D5D729B5A38D007FA84C /* StringExtension.swift in Sources */,
@@ -893,6 +1028,7 @@
 				A8C19E16299E8CE50011F37A /* TennisMoment.xcdatamodeld in Sources */,
 				A850A94829E6B2D6000AC80C /* TMGameView.swift in Sources */,
 				A8ED766029D5C56A005A6F23 /* TMSettingIconCell.swift in Sources */,
+				A80BFFC22A0D236100E201EB /* EDConfigSelectionViewController.swift in Sources */,
 				A834D5D029B590C3007FA84C /* TMSys.swift in Sources */,
 				A8C19D93299E77CB0011F37A /* SceneDelegate.swift in Sources */,
 				A834D5D929B5B90E007FA84C /* TMServerView.swift in Sources */,

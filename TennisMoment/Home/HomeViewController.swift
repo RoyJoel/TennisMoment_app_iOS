@@ -13,7 +13,7 @@ import TMComponent
 import Toast_Swift
 import UIKit
 
-class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate {
+class HomeViewController: TMViewController, CLLocationManagerDelegate, UITableViewDelegate {
     var isRecordViewFullScreen = false
 
     /// 比赛记录视图
@@ -49,21 +49,8 @@ class HomeViewController: UIViewController, CLLocationManagerDelegate, UITableVi
         return view
     }()
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.navigationBar.isHidden = false
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = ""
-        navigationController?.navigationBar.tintColor = UIColor(named: "ContentBackground")
-        view.backgroundColor = UIColor(named: "BackgroundGray")
 
         view.addSubview(recordView)
         view.addSubview(rankingView)

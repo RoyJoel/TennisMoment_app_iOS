@@ -9,7 +9,9 @@ import Foundation
 
 open class TMTextFieldConfig {
     public var placeholderText: String
-    init(placeholderText: String) {
+    public var text: String?
+    init(placeholderText: String, text: String? = nil) {
         self.placeholderText = placeholderText
+        self.text = text
     }
 }
