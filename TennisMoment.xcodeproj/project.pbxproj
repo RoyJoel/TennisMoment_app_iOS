@@ -203,9 +203,9 @@
 		A80BFFBB2A0D236100E201EB /* TMDeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDeliveryViewController.swift; sourceTree = "<group>"; };
 		A80BFFD42A0D23A500E201EB /* ShoppingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingViewController.swift; sourceTree = "<group>"; };
 		A80BFFD62A0D240E00E201EB /* Commodity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commodity.swift; sourceTree = "<group>"; };
-		A80BFFD72A0D240E00E201EB /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bill.swift; path = ../../../../EDMS/EDMS/Model/Bill.swift; sourceTree = "<group>"; };
-		A80BFFD82A0D240E00E201EB /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = ../../../../EDMS/EDMS/Model/Address.swift; sourceTree = "<group>"; };
-		A80BFFD92A0D240E00E201EB /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Order.swift; path = ../../../../EDMS/EDMS/Model/Order.swift; sourceTree = "<group>"; };
+		A80BFFD72A0D240E00E201EB /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
+		A80BFFD82A0D240E00E201EB /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		A80BFFD92A0D240E00E201EB /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		A80BFFDE2A0D257800E201EB /* TMEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMEventView.swift; sourceTree = "<group>"; };
 		A810F78D29ADEDB70044C424 /* TMPlayerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMPlayerRequest.swift; sourceTree = "<group>"; };
 		A810F79029ADEEB20044C424 /* TMNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMNetWork.swift; sourceTree = "<group>"; };

@@ -1,6 +1,6 @@
 //
 //  Order.swift
-//  EDMS
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/24.
 //
@@ -12,21 +12,17 @@ struct Order: Codable, Equatable {
     var id: Int
     var bills: [Bill]
     var shippingAddress: Address
-    var deliveryAddress: Address
-    var payment: Payment
-    var totalPrice: Double
+    var payment: payType
     var createdTime: TimeInterval
     var payedTime: TimeInterval?
     var completedTime: TimeInterval?
     var state: OrderState
 
-    init(id: Int, bills: [Bill], shippingAddress: Address, deliveryAddress: Address, payment: Payment, totalPrice: Double, createdTime: TimeInterval, payedTime: TimeInterval? = nil, completedTime: TimeInterval? = nil, state: OrderState) {
+    init(id: Int, bills: [Bill], shippingAddress: Address, payment: payType, createdTime: TimeInterval, payedTime: TimeInterval? = nil, completedTime: TimeInterval? = nil, state: OrderState) {
         self.id = id
         self.bills = bills
         self.shippingAddress = shippingAddress
-        self.deliveryAddress = deliveryAddress
         self.payment = payment
-        self.totalPrice = totalPrice
         self.createdTime = createdTime
         self.payedTime = payedTime
         self.completedTime = completedTime
@@ -37,9 +33,7 @@ struct Order: Codable, Equatable {
         id = json["id"].intValue
         bills = json["bills"].arrayValue.map { Bill(json: $0) }
         shippingAddress = Address(json: json["shippingAddress"])
-        deliveryAddress = Address(json: json["deliveryAddress"])
-        payment = Payment(rawValue: json["payment"].stringValue) ?? .WeChat
-        totalPrice = json["totalPrice"].doubleValue
+        payment = payType(rawValue: json["payment"].stringValue) ?? .weChatOnline
         createdTime = json["createdTime"].doubleValue
         payedTime = json["payedTime"].doubleValue
         completedTime = json["completedTime"].doubleValue
@@ -54,7 +48,7 @@ struct Order: Codable, Equatable {
         guard let id = dictionary["id"] as? Int,
             let billsArray = dictionary["bills"] as? [[String: Any]],
             let shippingAddressDict = dictionary["shippingAddress"] as? [String: Any],
-            let deliveryAddressDict = dictionary["deliveryAddress"] as? [String: Any], let payment = dictionary["payment"] as? String, let state = dictionary["state"] as? Int, let totalPrice = dictionary["totalPrice"] as? Double,
+            let payment = dictionary["payment"] as? String, let state = dictionary["state"] as? Int,
             let createdTime = dictionary["createdTime"] as? TimeInterval else {
             return nil
         }
@@ -62,10 +56,8 @@ struct Order: Codable, Equatable {
         self.id = id
         bills = billsArray.compactMap { Bill(dictionary: $0) }
         shippingAddress = Address(dictionary: shippingAddressDict)!
-        deliveryAddress = Address(dictionary: deliveryAddressDict)!
         self.state = OrderState(rawValue: state) ?? .ToPay
-        self.payment = Payment(rawValue: payment) ?? .WeChat
-        self.totalPrice = totalPrice
+        self.payment = payType(rawValue: payment) ?? .weChatOnline
         self.createdTime = createdTime
 
         if let payedTime = dictionary["payedTime"] as? TimeInterval {
@@ -82,8 +74,6 @@ struct Order: Codable, Equatable {
             "id": id,
             "bills": bills.map { $0.toDictionary() },
             "shippingAddress": shippingAddress.toDictionary(),
-            "deliveryAddress": deliveryAddress.toDictionary(),
-            "totalPrice": totalPrice,
             "payment": payment.rawValue,
             "state": state.rawValue,
             "createdTime": createdTime,
@@ -103,8 +93,7 @@ struct Order: Codable, Equatable {
     static func == (lhs: Order, rhs: Order) -> Bool {
         return lhs.id == rhs.id &&
             lhs.bills == rhs.bills &&
-            lhs.shippingAddress == rhs.shippingAddress &&
-            lhs.deliveryAddress == rhs.deliveryAddress && lhs.payment == rhs.payment && lhs.totalPrice == rhs.totalPrice &&
+            lhs.shippingAddress == rhs.shippingAddress && lhs.payment == rhs.payment &&
             lhs.createdTime == rhs.createdTime && lhs.state == rhs.state &&
             lhs.payedTime == rhs.payedTime &&
             lhs.completedTime == rhs.completedTime
@@ -130,5 +119,101 @@ enum OrderState: Int, CaseIterable, Codable {
         case .ToReturn: return "需退款"
         case .Refunded: return "已退款"
         }
+    }
+}
+
+struct OrderRequest: Codable, Equatable {
+    var id: Int
+    var bills: [Bill]
+    var shippingAddress: Address
+    var payment: payType
+    var playerId: Int
+    var createdTime: TimeInterval
+    var payedTime: TimeInterval?
+    var completedTime: TimeInterval?
+    var state: OrderState
+
+    init(id: Int, bills: [Bill], shippingAddress: Address, payment: payType, playerId: Int, createdTime: TimeInterval, payedTime: TimeInterval? = nil, completedTime: TimeInterval? = nil, state: OrderState) {
+        self.id = id
+        self.bills = bills
+        self.shippingAddress = shippingAddress
+        self.playerId = playerId
+        self.payment = payment
+        self.createdTime = createdTime
+        self.payedTime = payedTime
+        self.completedTime = completedTime
+        self.state = state
+    }
+
+    init(json: JSON) {
+        id = json["id"].intValue
+        bills = json["bills"].arrayValue.map { Bill(json: $0) }
+        shippingAddress = Address(json: json["shippingAddress"])
+        payment = payType(rawValue: json["payment"].stringValue) ?? .weChatOnline
+        playerId = json["playerId"].intValue
+        createdTime = json["createdTime"].doubleValue
+        payedTime = json["payedTime"].doubleValue
+        completedTime = json["completedTime"].doubleValue
+        state = OrderState(rawValue: json["state"].intValue) ?? .ToPay
+    }
+
+    init() {
+        self = OrderRequest(json: JSON())
+    }
+
+    init?(dictionary: [String: Any]) {
+        guard let id = dictionary["id"] as? Int,
+            let billsArray = dictionary["bills"] as? [[String: Any]],
+            let shippingAddressDict = dictionary["shippingAddress"] as? [String: Any], let payment = dictionary["payment"] as? String, let playerId = dictionary["playerId"] as? Int, let state = dictionary["state"] as? Int,
+            let createdTime = dictionary["createdTime"] as? TimeInterval else {
+            return nil
+        }
+
+        self.id = id
+        bills = billsArray.compactMap { Bill(dictionary: $0) }
+        shippingAddress = Address(dictionary: shippingAddressDict)!
+        self.state = OrderState(rawValue: state) ?? .ToPay
+        self.payment = payType(rawValue: payment) ?? .weChatOnline
+        self.playerId = playerId
+        self.createdTime = createdTime
+
+        if let payedTime = dictionary["payedTime"] as? TimeInterval {
+            self.payedTime = payedTime
+        }
+
+        if let completedTime = dictionary["completedTime"] as? TimeInterval {
+            self.completedTime = completedTime
+        }
+    }
+
+    func toDictionary() -> [String: Any] {
+        var dict: [String: Any] = [
+            "id": id,
+            "bills": bills.map { $0.toDictionary() },
+            "shippingAddress": shippingAddress.toDictionary(),
+            "payment": payment.rawValue,
+            "playerId": playerId,
+            "state": state.rawValue,
+            "createdTime": createdTime,
+        ]
+
+        if let payedTime = payedTime {
+            dict["payedTime"] = payedTime
+        }
+
+        if let completedTime = completedTime {
+            dict["completedTime"] = completedTime
+        }
+
+        return dict
+    }
+
+    static func == (lhs: OrderRequest, rhs: OrderRequest) -> Bool {
+        return lhs.id == rhs.id &&
+            lhs.bills == rhs.bills &&
+            lhs.shippingAddress == rhs.shippingAddress && lhs.payment == rhs.payment && lhs.playerId == rhs.playerId &&
+            lhs.createdTime == rhs.createdTime && lhs.state == rhs.state &&
+            lhs.payedTime == rhs.payedTime &&
+            lhs.completedTime == rhs.completedTime
     }
 }

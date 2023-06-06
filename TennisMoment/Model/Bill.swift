@@ -1,6 +1,6 @@
 //
 //  Bill.swift
-//  EDMS
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/24.
 //
@@ -12,31 +12,33 @@ struct Bill: Codable, Equatable {
     var id: Int
     var com: Commodity
     var quantity: Int
-    var cag: Int
+    var option: Option
 
-    init(id: Int, com: Commodity, quantity: Int, cag: Int) {
+    init(id: Int, com: Commodity, quantity: Int, option: Option) {
         self.id = id
         self.com = com
         self.quantity = quantity
-        self.cag = cag
+        self.option = option
     }
 
     init(json: JSON) {
         id = json["id"].intValue
         com = Commodity(json: json["com"])
         quantity = json["quantity"].intValue
-        cag = json["cag"].intValue
+        option = Option(json: json["option"])
     }
 
     init?(dictionary: [String: Any]) {
         guard let id = dictionary["id"] as? Int,
             let comDict = dictionary["comId"] as? [String: Any], let com = Commodity(dict: comDict),
             let quantity = dictionary["quantity"] as? Int,
-            let cag = dictionary["cag"] as? Int else {
+            let optionDict = dictionary["opinion"] as? [String: Any] else {
             return nil
         }
 
-        self.init(id: id, com: com, quantity: quantity, cag: cag)
+        let option = Option(dict: optionDict) ?? Option()
+
+        self.init(id: id, com: com, quantity: quantity, option: option)
     }
 
     func toDictionary() -> [String: Any] {
@@ -44,7 +46,7 @@ struct Bill: Codable, Equatable {
             "id": id,
             "com": com.toDictionary(),
             "quantity": quantity,
-            "cag": cag,
+            "option": option,
         ]
     }
 
@@ -56,11 +58,30 @@ struct Bill: Codable, Equatable {
         return lhs.id == rhs.id &&
             lhs.com == rhs.com &&
             lhs.quantity == rhs.quantity &&
-            lhs.cag == rhs.cag
+            lhs.option == rhs.option
     }
 }
 
-enum Payment: String, Codable, CaseIterable {
-    case WeChat
-    case AliPay
+struct BillRequest: Codable, Equatable {
+    var id: Int
+    var comId: Int
+    var quantity: Int
+    var optionId: Int
+    var orderId: Int
+
+    init(id: Int, comId: Int, quantity: Int, optionId: Int, orderId: Int) {
+        self.id = id
+        self.comId = comId
+        self.quantity = quantity
+        self.optionId = optionId
+        self.orderId = orderId
+    }
+
+    init(json: JSON) {
+        id = json["id"].intValue
+        comId = json["comId"].intValue
+        quantity = json["quantity"].intValue
+        optionId = json["optionId"].intValue
+        orderId = json["orderId"].intValue
+    }
 }
