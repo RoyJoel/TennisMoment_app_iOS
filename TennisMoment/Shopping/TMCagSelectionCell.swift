@@ -1,6 +1,6 @@
 //
-//  EDCagSelectionCell.swift
-//  EDMS
+//  TMCagSelectionCell.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/22.
 //
@@ -9,12 +9,6 @@ import Foundation
 import UIKit
 
 class TMCagSelectionCell: UICollectionViewCell {
-    override var isSelected: Bool {
-        didSet {
-            isBeenSelected = isSelected
-        }
-    }
-
     @objc dynamic var isBeenSelected: Bool = false
 
     lazy var comIconView: UIImageView = {
@@ -50,7 +44,7 @@ class TMCagSelectionCell: UICollectionViewCell {
     }
 
     func setupEvent(icon: String) {
-        let icon = UIImage(named: icon)
+        let icon = UIImage(data: icon.toPng())
         comIconView.image = icon
     }
 }

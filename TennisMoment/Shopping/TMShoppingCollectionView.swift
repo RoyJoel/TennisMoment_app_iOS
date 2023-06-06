@@ -11,13 +11,13 @@ import UIKit
 
 class TMShoppingCollectionView: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource {
     var coms: [Commodity] = []
-    init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout, coms: [Commodity]) {
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        self.coms = coms
         backgroundColor = UIColor(named: "BackgroundGray")
         delegate = self
         dataSource = self
         register(TMCommodityCell.self, forCellWithReuseIdentifier: "commodityies")
+        reloadData()
     }
 
     required init?(coder _: NSCoder) {
@@ -26,6 +26,9 @@ class TMShoppingCollectionView: UICollectionView, UICollectionViewDelegate, UICo
 
     func applyFilter(coms: [Commodity]) {
         self.coms = coms
+        if coms.count != 0 {
+            collectionViewLayout = TMFlowLayout(commodities: coms)
+        }
         reloadData()
     }
 
@@ -36,7 +39,11 @@ class TMShoppingCollectionView: UICollectionView, UICollectionViewDelegate, UICo
     func collectionView(_: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = dequeueReusableCell(withReuseIdentifier: "commodityies", for: indexPath) as! TMCommodityCell
         cell.setupUI()
-        cell.setupEvent(icon: coms[indexPath.row].images[0], intro: coms[indexPath.row].name, price: coms[indexPath.row].price, turnOver: coms[indexPath.row].orders)
+        if TMDataConvert.getPriceRange(with: coms[indexPath.row].options).0 == TMDataConvert.getPriceRange(with: coms[indexPath.row].options).1 {
+            cell.setupEvent(icon: coms[indexPath.row].options[0].image, intro: coms[indexPath.row].name, price: "\(TMDataConvert.getPriceRange(with: coms[indexPath.row].options).0)", turnOver: coms[indexPath.row].orders)
+        } else {
+            cell.setupEvent(icon: coms[indexPath.row].options[0].image, intro: coms[indexPath.row].name, price: "\(TMDataConvert.getPriceRange(with: coms[indexPath.row].options).0) - \(TMDataConvert.getPriceRange(with: coms[indexPath.row].options).1)", turnOver: coms[indexPath.row].orders)
+        }
         return cell
     }
 

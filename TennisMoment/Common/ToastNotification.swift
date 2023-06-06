@@ -14,6 +14,8 @@ enum ToastNotification: String {
     case AddGameToast
     case ContinueGameToast
     case DataSavingToast
+    // 刷新订单信息
+    case refreshOrderData
 
     /// 通知名称
     var notificationName: NSNotification.Name {

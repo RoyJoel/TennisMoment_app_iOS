@@ -1,6 +1,6 @@
 //
-//  EDCagCollectionViewLayout.swift
-//  EDMS
+//  TMCagCollectionViewLayout.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/22.
 //
@@ -31,7 +31,7 @@ class TMCagCollectionViewLayout: UICollectionViewLayout {
         // 初始化数组
         attributeArray = [UICollectionViewLayoutAttributes]()
         // 先计算每个item的宽度，默认为两列布局
-        let WIDTH = 108
+        let WIDTH = 88
         // 进行循环设置
         for index in 0 ..< itemCount {
             // 设置IndexPath，默认为一个分区
@@ -40,24 +40,18 @@ class TMCagCollectionViewLayout: UICollectionViewLayout {
             let attris = UICollectionViewLayoutAttributes(forCellWith: indexPath)
             // 随机一个高度在80到190之间的值
             let height = WIDTH
+
+            let layer = index / 3
+
+            let positionIndex = index % 3
+
+            let position = CGFloat(WIDTH) * CGFloat(positionIndex) + (12 * CGFloat(positionIndex))
             // 哪列高度小就把它放那列下面
-            attris.frame = CGRect(x: CGFloat(WIDTH) * CGFloat(index) + (12 * CGFloat(index)), y: 12, width: CGFloat(WIDTH), height: CGFloat(height))
+            attris.frame = CGRect(x: position, y: CGFloat((12 * layer) + (WIDTH * layer)), width: CGFloat(WIDTH), height: CGFloat(height))
             // 添加到数组中
             attributeArray?.append(attris)
         }
-//        // 以最大一列的高度计算每个item高度的中间值，这样可以保证滑动范围的正确
-//        if queueHieght.one <= queueHieght.two {
-//            itemSize = CGSize(width: WIDTH, height: queueHieght.two * 2.0 / CGFloat(itemCount) - minimumLineSpacing)
-//        } else {
-//            itemSize = CGSize(width: WIDTH, height: queueHieght.one * 2.0 / CGFloat(itemCount) - minimumLineSpacing)
-//        }
     }
-
-//    func calculateAR(image: UIImage) -> CGFloat {
-//        let width = image.size.width
-//        let height = image.size.height
-//        return height / width
-//    }
 
     // 将设置好存放每个item的布局信息返回
     override func layoutAttributesForElements(in _: CGRect) -> [UICollectionViewLayoutAttributes]? {

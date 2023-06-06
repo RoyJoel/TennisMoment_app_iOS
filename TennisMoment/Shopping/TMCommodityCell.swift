@@ -1,6 +1,6 @@
 //
-//  EDcommodityCell.swift
-//  EDMS
+// TMcommodityCell.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/21.
 //
@@ -47,32 +47,30 @@ class TMCommodityCell: UICollectionViewCell {
             make.left.equalToSuperview().offset(6)
             make.right.equalToSuperview().offset(-6)
             make.top.equalTo(comIconView.snp.bottom).offset(6)
-            make.height.equalTo(38)
         }
         priceLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(6)
-            make.top.equalTo(comIntroView.snp.bottom).offset(6)
-            make.width.equalTo(138)
-            make.height.equalTo(38)
+            make.bottom.equalTo(turnoverLabel.snp.top).offset(-6)
         }
         turnoverLabel.snp.makeConstraints { make in
             make.right.equalToSuperview().offset(-6)
-            make.top.equalTo(comIntroView.snp.bottom).offset(6)
-            make.width.equalTo(88)
-            make.height.equalTo(38)
+            make.bottom.equalToSuperview().offset(-12)
         }
 
+        comIntroView.numberOfLines = 2
         priceLabel.textColor = UIColor(named: "Tennis")
-        priceLabel.font = UIFont.systemFont(ofSize: 24)
+        priceLabel.font = UIFont.systemFont(ofSize: 16)
         turnoverLabel.textColor = UIColor(named: "blurGray")
+        turnoverLabel.font = UIFont.systemFont(ofSize: 12)
         comIconView.contentMode = .scaleAspectFit
+        comIntroView.numberOfLines = 2
     }
 
-    func setupEvent(icon: String, intro: String, price: Double, turnOver: Int) {
-        let icon = UIImage(named: icon)
+    func setupEvent(icon: String, intro: String, price: String, turnOver: Int) {
+        let icon = UIImage(data: icon.toPng())
         comIconView.image = icon
         comIntroView.text = intro
-        priceLabel.text = String(format: "%.2f", price) + "积分"
+        priceLabel.text = price + "积分"
         turnoverLabel.text = "\(turnOver)人已兑换"
         let ar = calculateAR(image: icon ?? UIImage())
         comIconView.snp.remakeConstraints { make in

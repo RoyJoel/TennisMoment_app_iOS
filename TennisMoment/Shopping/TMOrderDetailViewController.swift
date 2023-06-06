@@ -10,6 +10,8 @@ import UIKit
 
 class TMOrderDetailViewController: UIViewController {
     var order = Order()
+    var completionHandler: ((Order) -> Void)?
+    var deleteCompletionHandler: (() -> Void)?
     lazy var addressView: TMAddressCell = {
         let view = TMAddressCell()
         return view
@@ -37,6 +39,7 @@ class TMOrderDetailViewController: UIViewController {
 
     lazy var billingView: TMBillingView = {
         let view = TMBillingView()
+        view.isOrderCell = true
         return view
     }()
 
@@ -71,6 +74,11 @@ class TMOrderDetailViewController: UIViewController {
     }()
 
     lazy var cancelBtn: UIButton = {
+        let btn = UIButton()
+        return btn
+    }()
+
+    lazy var saveBtn: UIButton = {
         let btn = UIButton()
         return btn
     }()
@@ -127,6 +135,7 @@ class TMOrderDetailViewController: UIViewController {
         view.addSubview(doneTimeLabel)
         view.addSubview(cancelBtn)
         view.addSubview(sentBtn)
+        view.addSubview(saveBtn)
 
         orderStateLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(24)
@@ -245,24 +254,56 @@ class TMOrderDetailViewController: UIViewController {
             make.right.equalToSuperview().offset(-32)
         }
 
+        saveBtn.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.width.equalTo(108)
+            make.height.equalTo(50)
+            make.bottom.equalToSuperview().offset(-138)
+        }
+
         orderStateLabel.text = order.state.displayName
         orderStateLabel.font = UIFont.systemFont(ofSize: 24)
-        addressView.setupEvent(address: order.deliveryAddress, canEdit: order.state == .ToPay || order.state == .ToSend)
+        addressView.setupEvent(address: TMUser.user.defaultAddress)
         billingView.setup(with: order.bills)
-        paymentLabel.text = "支付方式"
-        paymentNameLabel.text = order.payment.rawValue
-        priceNumLabel.text = "¥\(order.totalPrice)"
+//        paymentLabel.text = "支付方式"
+//        paymentNameLabel.text = order.payment.displayName
+        priceNumLabel.text = "\(TMDataConvert.getTotalPrice(order.bills))积分"
         priceLabel.text = "总计"
-        cancelBtn.setTitle("取消订单", for: .normal)
         cancelBtn.setTitleColor(UIColor(named: "ContentBackground"), for: .normal)
         cancelBtn.backgroundColor = UIColor(named: "ComponentBackground")
         cancelBtn.setCorner(radii: 10)
-        if order.state == .ToSend {
-            sentBtn.setTitle("一键发货", for: .normal)
+        saveBtn.setTitleColor(UIColor(named: "ContentBackground"), for: .normal)
+        saveBtn.backgroundColor = UIColor(named: "TennisBlur")
+        saveBtn.setCorner(radii: 10)
+        saveBtn.isHidden = true
+        if order.state == .ToPay {
+            saveBtn.isHidden = false
+            sentBtn.setTitle("修改地址", for: .normal)
+            sentBtn.addTarget(self, action: #selector(changeAddress), for: .touchDown)
+            saveBtn.setTitle("现在支付", for: .normal)
+            saveBtn.addTarget(self, action: #selector(buy), for: .touchDown)
+            cancelBtn.setTitle("取消订单", for: .normal)
+            cancelBtn.isHidden = false
+            cancelBtn.addTarget(self, action: #selector(cancelOrder), for: .touchDown)
+        } else if order.state == .ToSend {
+            sentBtn.setTitle("修改地址", for: .normal)
+            sentBtn.addTarget(self, action: #selector(changeAddress), for: .touchDown)
+            cancelBtn.isHidden = true
         } else if order.state == .ToDelivery {
-            sentBtn.setTitle("一键拦截", for: .normal)
-        } else if order.state == .ToRefund || order.state == .ToReturn {
-            sentBtn.setTitle("确认", for: .normal)
+            sentBtn.setTitle("确认收货", for: .normal)
+            sentBtn.addTarget(self, action: #selector(confirmDelivery), for: .touchDown)
+            cancelBtn.isHidden = true
+        } else if order.state == .ToRefund {
+            sentBtn.setTitle("我已发货", for: .normal)
+            sentBtn.addTarget(self, action: #selector(sentOrder), for: .touchDown)
+            cancelBtn.addTarget(self, action: #selector(cancelRefund), for: .touchDown)
+            cancelBtn.setTitle("取消退货", for: .normal)
+            cancelBtn.isHidden = false
+        } else if order.state == .ToReturn {
+            sentBtn.setTitle("取消退款", for: .normal)
+            sentBtn.addTarget(self, action: #selector(cancelReturn), for: .touchDown)
+            sentBtn.isHidden = false
+            cancelBtn.isHidden = true
         } else {
             sentBtn.isHidden = true
             cancelBtn.isHidden = true
@@ -270,28 +311,26 @@ class TMOrderDetailViewController: UIViewController {
         sentBtn.setTitleColor(UIColor(named: "ContentBackground"), for: .normal)
         sentBtn.backgroundColor = UIColor(named: "TennisBlur")
         sentBtn.setCorner(radii: 10)
-        cancelBtn.addTarget(self, action: #selector(cancelOrder), for: .touchDown)
-        sentBtn.addTarget(self, action: #selector(sentOrder), for: .touchDown)
         orderLabel.text = "订单编号"
         orderNumLabel.text = "\(order.id)"
         orderCreateTimeLabel.text = "创建时间"
         createTimeLabel.text = order.createdTime.convertToString()
 
-        if let payedTime = order.payedTime {
+        if order.state != .ToPay {
             orderPayedTimeLabel.isHidden = false
             payedTimeLabel.isHidden = false
             orderPayedTimeLabel.text = "支付时间"
-            payedTimeLabel.text = payedTime.convertToString()
+            payedTimeLabel.text = order.payedTime?.convertToString()
         } else {
             orderPayedTimeLabel.isHidden = true
             payedTimeLabel.isHidden = true
         }
 
-        if let doneTime = order.completedTime {
+        if order.state == .Done {
             orderDoneTimeLabel.isHidden = false
             doneTimeLabel.isHidden = false
             orderDoneTimeLabel.text = "完成时间"
-            doneTimeLabel.text = doneTime.convertToString()
+            doneTimeLabel.text = order.completedTime?.convertToString()
         } else {
             orderDoneTimeLabel.isHidden = true
             doneTimeLabel.isHidden = true
@@ -304,7 +343,106 @@ class TMOrderDetailViewController: UIViewController {
         billingViewBackground.backgroundColor = UIColor(named: "ComponentBackground")
     }
 
-    @objc func cancelOrder() {}
+    @objc func cancelOrder() {
+        TMOrderRequest.deleteOrder(id: order.id) { _ in
+            let toastView = UILabel()
+            toastView.text = NSLocalizedString("成功取消", comment: "")
+            toastView.numberOfLines = 2
+            toastView.bounds = CGRect(x: 0, y: 0, width: 350, height: 150)
+            toastView.backgroundColor = UIColor(named: "ComponentBackground")
+            toastView.textAlignment = .center
+            toastView.setCorner(radii: 15)
+            self.view.showToast(toastView, duration: 1, point: CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)) { _ in
+                (self.deleteCompletionHandler ?? {})()
+                NotificationCenter.default.post(name: Notification.Name(ToastNotification.refreshOrderData.rawValue), object: nil)
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+    }
+
+    @objc func buy() {
+        let vc = TMBillingViewController()
+        vc.order = order
+        navigationController?.present(vc, animated: true)
+    }
+
+    @objc func confirmDelivery() {
+        let orderRequest = OrderRequest(id: order.id, bills: order.bills, shippingAddress: order.shippingAddress, payment: order.payment, playerId: TMUser.user.id, createdTime: order.createdTime, payedTime: order.payedTime, state: .Done)
+        TMOrderRequest.updateOrder(order: orderRequest) { _ in
+            let toastView = UILabel()
+            toastView.text = NSLocalizedString("确认收货成功", comment: "")
+            toastView.numberOfLines = 2
+            toastView.bounds = CGRect(x: 0, y: 0, width: 350, height: 150)
+            toastView.backgroundColor = UIColor(named: "ComponentBackground")
+            toastView.textAlignment = .center
+            toastView.setCorner(radii: 15)
+            self.view.showToast(toastView, duration: 1, point: CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)) { _ in
+                (self.completionHandler ?? { _ in })(self.order)
+                NotificationCenter.default.post(name: Notification.Name(ToastNotification.refreshOrderData.rawValue), object: nil)
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+    }
+
+    @objc func changeAddress() {
+        let vc = TMAddressManagementViewController()
+        vc.selectedCompletionHandler = { address in
+            self.order.shippingAddress = address
+            let orderRequest = OrderRequest(id: self.order.id, bills: self.order.bills, shippingAddress: self.order.shippingAddress, payment: self.order.payment, playerId: TMUser.user.id, createdTime: self.order.createdTime, payedTime: self.order.payedTime, state: .Done)
+            TMOrderRequest.updateOrder(order: orderRequest) { _ in
+                let toastView = UILabel()
+                toastView.text = NSLocalizedString("修改地址成功", comment: "")
+                toastView.numberOfLines = 2
+                toastView.bounds = CGRect(x: 0, y: 0, width: 350, height: 150)
+                toastView.backgroundColor = UIColor(named: "ComponentBackground")
+                toastView.textAlignment = .center
+                toastView.setCorner(radii: 15)
+                self.view.showToast(toastView, duration: 1, point: CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)) { _ in
+                    self.addressView.setupEvent(address: address)
+                    (self.completionHandler ?? { _ in })(self.order)
+                    NotificationCenter.default.post(name: Notification.Name(ToastNotification.refreshOrderData.rawValue), object: nil)
+                    self.navigationController?.dismiss(animated: true)
+                }
+            }
+        }
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc func cancelRefund() {
+        let orderRequest = OrderRequest(id: order.id, bills: order.bills, shippingAddress: order.shippingAddress, payment: order.payment, playerId: TMUser.user.id, createdTime: order.createdTime, payedTime: order.payedTime, state: .Done)
+        TMOrderRequest.updateOrder(order: orderRequest) { _ in
+            let toastView = UILabel()
+            toastView.text = NSLocalizedString("成功取消", comment: "")
+            toastView.numberOfLines = 2
+            toastView.bounds = CGRect(x: 0, y: 0, width: 350, height: 150)
+            toastView.backgroundColor = UIColor(named: "ComponentBackground")
+            toastView.textAlignment = .center
+            toastView.setCorner(radii: 15)
+            self.view.showToast(toastView, duration: 1, point: CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)) { _ in
+                (self.completionHandler ?? { _ in })(self.order)
+                NotificationCenter.default.post(name: Notification.Name(ToastNotification.refreshOrderData.rawValue), object: nil)
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+    }
+
+    @objc func cancelReturn() {
+        let orderRequest = OrderRequest(id: order.id, bills: order.bills, shippingAddress: order.shippingAddress, payment: order.payment, playerId: TMUser.user.id, createdTime: order.createdTime, payedTime: order.payedTime, state: .Done)
+        TMOrderRequest.updateOrder(order: orderRequest) { _ in
+            let toastView = UILabel()
+            toastView.text = NSLocalizedString("成功取消", comment: "")
+            toastView.numberOfLines = 2
+            toastView.bounds = CGRect(x: 0, y: 0, width: 350, height: 150)
+            toastView.backgroundColor = UIColor(named: "ComponentBackground")
+            toastView.textAlignment = .center
+            toastView.setCorner(radii: 15)
+            self.view.showToast(toastView, duration: 1, point: CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)) { _ in
+                (self.completionHandler ?? { _ in })(self.order)
+                NotificationCenter.default.post(name: Notification.Name(ToastNotification.refreshOrderData.rawValue), object: nil)
+                self.navigationController?.dismiss(animated: true)
+            }
+        }
+    }
 
     @objc func sentOrder() {
         let vc = TMDeliveryViewController()

@@ -1,6 +1,6 @@
 //
-//  EDComContentViewController.swift
-//  EDMS
+// TMComContentViewController.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/22.
 //
@@ -48,18 +48,18 @@ class TMComContentViewController: UIViewController {
         view.addSubview(buyBtn)
 
         imagesView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(36)
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().offset(98)
+            make.centerX.equalToSuperview()
             make.width.equalTo(UIStandard.shared.screenWidth * 0.5)
             make.height.equalTo(UIStandard.shared.screenWidth * 0.5)
         }
-        imagesView.intros = com.images
+        imagesView.intros = com.options.compactMap { $0.image }
         imagesView.setupUI()
 
         nameView.snp.makeConstraints { make in
-            make.top.equalTo(imagesView.snp.top)
-            make.right.equalToSuperview().offset(-36)
-            make.width.equalTo(UIStandard.shared.screenWidth * 0.4)
+            make.top.equalTo(imagesView.snp.bottom).offset(12)
+            make.left.equalToSuperview().offset(24)
+            make.right.equalToSuperview().offset(-24)
         }
 
         nameView.font = UIFont.systemFont(ofSize: 36)
@@ -72,11 +72,15 @@ class TMComContentViewController: UIViewController {
         }
 
         priceView.font = UIFont.systemFont(ofSize: 28)
-        priceView.text = "¥" + String(format: "%.2f", com.price)
+        if TMDataConvert.getPriceRange(with: com.options).0 == TMDataConvert.getPriceRange(with: com.options).1 {
+            priceView.text = "\(TMDataConvert.getPriceRange(with: com.options).0)积分"
+        } else {
+            priceView.text = "\(TMDataConvert.getPriceRange(with: com.options).0) - \(TMDataConvert.getPriceRange(with: com.options).1)积分"
+        }
 
         introView.snp.makeConstraints { make in
             make.top.equalTo(priceView.snp.bottom).offset(12)
-            make.right.equalTo(nameView.snp.right).offset(-24)
+            make.right.equalTo(nameView.snp.right)
             make.left.equalTo(nameView.snp.left)
         }
 
@@ -85,13 +89,13 @@ class TMComContentViewController: UIViewController {
         introView.text = com.intro
 
         buyBtn.snp.makeConstraints { make in
-            make.bottom.equalTo(imagesView.snp.bottom)
-            make.right.equalTo(nameView.snp.right)
+            make.bottom.equalToSuperview().offset(-132)
+            make.right.equalToSuperview().offset(-24)
             make.width.equalTo(144)
             make.height.equalTo(50)
         }
 
-        let btnConfig = TMButtonConfig(title: "Want This?", action: #selector(selectConfig), actionTarget: self)
+        let btnConfig = TMButtonConfig(title: "选择款式", action: #selector(selectConfig), actionTarget: self)
         buyBtn.setUp(with: btnConfig)
         buyBtn.backgroundColor = UIColor(named: "TennisBlur")
         buyBtn.setTitleColor(.black, for: .normal)

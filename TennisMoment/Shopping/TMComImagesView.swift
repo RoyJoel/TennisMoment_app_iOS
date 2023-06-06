@@ -29,7 +29,7 @@ class TMComImagesView: TMView {
 
     func setupUI() {
         setCorner(radii: 20)
-        backgroundColor = UIColor(named: "ComponentBackground")
+        backgroundColor = UIColor(named: "BackgroundGray")
 
         segmentedView.listContainer = listContainerView
         addSubview(listContainerView)
@@ -51,7 +51,7 @@ extension TMComImagesView: JXSegmentedListContainerViewDataSource {
     }
 
     func listContainerView(_: JXSegmentedListContainerView, initListAt: Int) -> JXSegmentedListContainerViewListDelegate {
-        let containerView = TMComIntroContainerView(image: UIImage(named: intros[initListAt]))
+        let containerView = TMComIntroContainerView(image: UIImage(data: intros[initListAt].toPng()))
         return containerView
     }
 }

@@ -17,105 +17,84 @@ class AccountViewController: TMViewController {
         return imageView
     }()
 
-    lazy var allHistoryGamesNavBtn: TMButton = {
-        let btn = TMButton()
-        return btn
-    }()
-
     lazy var iconView: TMIconView = {
         let iconView = TMIconView()
         return iconView
     }()
 
-    lazy var basicInfoView: TMUserInfoView = {
-        let infoView = TMUserInfoView()
-        return infoView
+    lazy var pointLabel: UILabel = {
+        let label = UILabel()
+        return label
     }()
 
-    lazy var userDataView: TMUserDataView = {
-        let dataView = TMUserDataView()
-        return dataView
+    lazy var userOrderView: TMButton = {
+        let view = TMButton()
+        return view
+    }()
+
+    lazy var allHistoryGamesNavBtn: TMButton = {
+        let view = TMButton()
+        return view
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.addSubview(settingView)
-        view.addSubview(allHistoryGamesNavBtn)
         view.addSubview(iconView)
-        view.addSubview(basicInfoView)
-        view.addSubview(userDataView)
+        view.addSubview(pointLabel)
+        view.addSubview(userOrderView)
+        view.addSubview(allHistoryGamesNavBtn)
 
         iconView.setupUI()
-
-        basicInfoView.setupUI()
         let iconConfig = TMIconViewConfig(icon: TMUser.user.icon.toPng(), name: TMUser.user.name)
         iconView.setupEvent(config: iconConfig)
-        basicInfoView.setupEvent()
-        userDataView.setupUI()
-        userDataView.setupEventForCareerStatsView()
-        if TMUser.user.allHistoryGames.count != 0 {
-            userDataView.setupEventForGameStatsView(games: TMUser.user.allHistoryGames)
-        } else {
-            userDataView.gameStatsView.setupAlart()
-        }
         settingView.tintColor = UIColor(named: "ContentBackground")
         settingView.snp.makeConstraints { make in
-            make.top.equalTo(32)
-            make.left.equalTo(44)
+            make.top.equalToSuperview().offset(58)
+            make.left.equalToSuperview().offset(44)
             make.width.equalTo(40)
             make.height.equalTo(40)
         }
+
+        pointLabel.snp.makeConstraints { make in
+            make.top.equalTo(iconView.snp.bottom).offset(24)
+            make.centerX.equalToSuperview()
+        }
+
+        userOrderView.snp.makeConstraints { make in
+            make.top.equalTo(pointLabel.snp.bottom).offset(24)
+            make.height.equalTo(68)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(138)
+        }
         allHistoryGamesNavBtn.snp.makeConstraints { make in
-            make.left.equalTo(settingView.snp.right).offset(12)
-            make.top.equalTo(settingView.snp.top)
-            make.width.equalTo(188)
-            make.height.equalTo(settingView.snp.height)
+            make.top.equalTo(userOrderView.snp.bottom).offset(24)
+            make.height.equalTo(68)
+            make.centerX.equalToSuperview()
+            make.width.equalTo(138)
         }
         iconView.snp.makeConstraints { make in
             make.top.equalTo(settingView.snp.bottom).offset(24)
-            make.left.equalTo(settingView.snp.left).offset(40)
+            make.centerX.equalToSuperview()
             make.width.equalTo(164)
             make.height.equalTo(240)
         }
-        basicInfoView.snp.makeConstraints { make in
-            make.left.equalTo(iconView.snp.right).offset(40)
-            make.top.equalTo(iconView.snp.top).offset(-68)
-            make.right.equalToSuperview().offset(-44)
-            make.bottom.equalTo(iconView.snp.bottom).offset(22)
-        }
-        userDataView.snp.makeConstraints { make in
-            make.left.equalToSuperview().offset(44)
-            make.right.equalToSuperview().offset(-44)
-            make.top.equalTo(iconView.snp.bottom)
-            make.bottom.equalToSuperview().offset(-78)
-        }
-        userDataView.gameStatsView.leftActivityView.addTapGesture(self, #selector(enterLeftDetailStatsView))
-        userDataView.gameStatsView.midActivityView.addTapGesture(self, #selector(enterMidDetailStatsView))
-        userDataView.gameStatsView.rightActivityView.addTapGesture(self, #selector(enterRightDetailStatsView))
         settingView.isUserInteractionEnabled = true
         settingView.addTapGesture(self, #selector(settingViewUp))
         NotificationCenter.default.addObserver(self, selector: #selector(refreshData), name: Notification.Name(ToastNotification.DataFreshToast.rawValue), object: nil)
-        let navBtnConfig = TMButtonConfig(title: "View All Games", action: #selector(viewAllGames), actionTarget: self)
-        allHistoryGamesNavBtn.setUp(with: navBtnConfig)
+        let userOrderConfig = TMButtonConfig(title: "历史比赛", action: #selector(viewAllGames), actionTarget: self)
+        userOrderView.setUp(with: userOrderConfig)
+
+        let userEOrderConfig = TMButtonConfig(title: "积分商城订单", action: #selector(viewAllOrders), actionTarget: self)
+        allHistoryGamesNavBtn.setUp(with: userEOrderConfig)
+
+        pointLabel.text = "当前积分：\(TMUser.user.points)"
     }
 
-    @objc func enterLeftDetailStatsView() {
-        let vc = TMGameStatsDetailViewController()
-        vc.game = userDataView.gameStatsView.leftActivityView.game ?? Game(json: JSON())
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
-    @objc func enterMidDetailStatsView() {
-        let vc = TMGameStatsDetailViewController()
-        vc.game = userDataView.gameStatsView.midActivityView.game ?? Game(json: JSON())
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
-    @objc func enterRightDetailStatsView() {
-        let vc = TMGameStatsDetailViewController()
-        vc.game = userDataView.gameStatsView.rightActivityView.game ?? Game(json: JSON())
-        navigationController?.pushViewController(vc, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        pointLabel.text = "当前积分：\(TMUser.user.points)"
     }
 
     @objc func settingViewUp() {
@@ -127,13 +106,15 @@ class AccountViewController: TMViewController {
     @objc func refreshData() {
         let iconConfig = TMIconViewConfig(icon: TMUser.user.icon.toPng(), name: TMUser.user.name)
         iconView.setupEvent(config: iconConfig)
-        basicInfoView.setupEvent()
-        userDataView.setupEventForCareerStatsView()
-        userDataView.setupEventForGameStatsView(games: TMUser.user.allHistoryGames)
     }
 
     @objc func viewAllGames() {
         let vc = TMUserAllHistoryGamesViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc func viewAllOrders() {
+        let vc = TMUserOrdersViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
 }

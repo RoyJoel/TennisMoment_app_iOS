@@ -1,6 +1,6 @@
 //
 //  TMAddressCell.swift
-//  EDMS
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/25.
 //
@@ -10,6 +10,7 @@ import UIKit
 
 class TMAddressCell: UITableViewCell {
     var address = Address()
+    var completionHandler: ((Address) -> Void)?
     lazy var nameAmdSexLabel: UILabel = {
         let label = UILabel()
         return label
@@ -110,20 +111,19 @@ class TMAddressCell: UITableViewCell {
             make.height.equalTo(38)
         }
         iconView.snp.makeConstraints { make in
-            make.left.equalToSuperview()
+            make.left.equalToSuperview().offset(12)
             make.centerY.equalToSuperview()
             make.width.equalTo(44)
             make.height.equalTo(44)
         }
 
         editView.snp.makeConstraints { make in
-            make.right.equalToSuperview()
+            make.right.equalToSuperview().offset(-12)
             make.centerY.equalToSuperview()
             make.height.equalTo(40)
         }
 
         iconView.image = UIImage(systemName: "location.circle")
-        iconView.tintColor = UIColor(named: "ContentBackground")
 
         editView.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
         editView.tintColor = UIColor(named: "ContentBackground")
@@ -139,6 +139,11 @@ class TMAddressCell: UITableViewCell {
         } else {
             editView.isHidden = true
         }
+        if address.id == TMUser.user.defaultAddress.id {
+            iconView.tintColor = UIColor(named: "Tennis")
+        } else {
+            iconView.tintColor = UIColor(named: "ContentBackground")
+        }
         nameAmdSexLabel.text = "\(address.name) \(address.sex == .Man ? "先生" : "女士")"
         phoneNumberLabel.text = "\(address.phoneNumber)"
         provinceLabel.text = "\(address.province)"
@@ -150,11 +155,12 @@ class TMAddressCell: UITableViewCell {
     @objc func enterEditingView() {
         if let parentVC = getParentViewController() {
             let vc = TMAddressEditingViewController()
-            vc.setupEvent(address: address)
             vc.saveCompletionHandler = { address in
                 self.setupEvent(address: address, canEdit: true)
+                (self.completionHandler ?? { _ in })(address)
             }
             parentVC.navigationController?.pushViewController(vc, animated: true)
+            vc.setupEvent(address: address)
         }
     }
 }

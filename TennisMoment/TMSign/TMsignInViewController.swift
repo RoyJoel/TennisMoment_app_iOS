@@ -81,14 +81,14 @@ class TMSignInViewController: AVPlayerViewController {
         }
         signUpBtn.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(12)
-            make.centerX.equalTo(passwordTextField.snp.right)
-            make.width.equalTo(178)
+            make.left.equalTo(passwordTextField.snp.centerX).offset(12)
+            make.width.equalTo(138)
             make.height.equalTo(48)
         }
         forgetPasswordBtn.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(12)
-            make.centerX.equalTo(passwordTextField.snp.left)
-            make.width.equalTo(178)
+            make.right.equalTo(passwordTextField.snp.centerX).offset(-12)
+            make.width.equalTo(138)
             make.height.equalTo(48)
         }
         signInBtn.frame = CGRect(x: UIScreen.main.bounds.width / 2 - 75, y: 530, width: 150, height: 150)

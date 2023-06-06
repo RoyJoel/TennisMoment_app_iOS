@@ -1,6 +1,6 @@
 //
-//  EDAddressView.swift
-//  EDMS
+//  TMAddressView.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/24.
 //
@@ -57,47 +57,47 @@ class TMAddressView: UIView {
 
         addressLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(24)
-            make.centerY.equalToSuperview()
+            make.top.equalToSuperview().offset(24)
             make.width.equalTo(158)
             make.height.equalTo(50)
         }
 
         nameAmdSexLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
-            make.top.equalToSuperview().offset(14)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
+            make.top.equalTo(addressLabel.snp.bottom).offset(12)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
 
         phoneNumberLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
             make.top.equalTo(nameAmdSexLabel.snp.bottom)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
         provinceLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
             make.top.equalTo(phoneNumberLabel.snp.bottom)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
         cityLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
             make.top.equalTo(provinceLabel.snp.bottom)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
         areaLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
             make.top.equalTo(cityLabel.snp.bottom)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
         detailedAddressLabel.snp.makeConstraints { make in
-            make.right.equalToSuperview().offset(-24)
-            make.left.equalTo(addressLabel).offset(12)
+            make.right.equalToSuperview().offset(-12)
+            make.left.equalToSuperview().offset(12)
             make.top.equalTo(areaLabel.snp.bottom)
-            make.height.equalToSuperview().dividedBy(6).offset(-4)
+            make.height.equalToSuperview().dividedBy(7).offset(-4)
         }
 
         addressLabel.text = "Delivery Address"
@@ -107,6 +107,7 @@ class TMAddressView: UIView {
         cityLabel.textAlignment = .right
         areaLabel.textAlignment = .right
         detailedAddressLabel.textAlignment = .right
+        detailedAddressLabel.numberOfLines = 2
         addTapGesture(self, #selector(editAddress))
     }
 

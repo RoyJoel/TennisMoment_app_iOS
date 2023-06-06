@@ -1,6 +1,6 @@
 //
-//  EDFilterView.swift
-//  EDMS
+//  TMFilterView.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/21.
 //
@@ -12,8 +12,8 @@ import UIKit
 class TMFilterView: TMView {
     let cagDS = cagFilterDataSource()
     let pointsDS = pointsFilterDataSource()
-    var cagCurIndex: String = comCag.none.displayName
-    var pointsCurIndex = ""
+    var cagCurIndex: String = cagFilterDataSource().filterItems[0]
+    var pointsCurIndex: String = comPoint.none.displayName
     var completionHandler: (([Commodity]) -> Void)?
 
     lazy var filterBtn: UIButton = {
@@ -37,13 +37,13 @@ class TMFilterView: TMView {
         addSubview(pointsFilter)
         bringSubviewToFront(filterBtn)
 
-        filterBtn.frame = CGRect(x: bounds.width - 100, y: 0, width: 88, height: bounds.height)
-        cagFilter.frame = CGRect(x: 12, y: 0, width: 88, height: bounds.height)
-        pointsFilter.frame = CGRect(x: 12, y: 0, width: 88, height: bounds.height)
+        filterBtn.frame = CGRect(x: bounds.width - 74, y: 0, width: 78, height: bounds.height)
+        cagFilter.frame = CGRect(x: 6, y: 0, width: 78, height: bounds.height)
+        pointsFilter.frame = CGRect(x: 6, y: 0, width: 78, height: bounds.height)
         filterBtn.setCorner(radii: 8)
         filterBtn.backgroundColor = UIColor(named: "ComponentBackground")
         filterBtn.setTitleColor(UIColor(named: "ContentBackground"), for: .normal)
-        filterBtn.setTitle("Filter", for: .normal)
+        filterBtn.setTitle("筛选", for: .normal)
 
         cagFilter.delegate = cagFilter
         cagFilter.dataSource = cagDS
@@ -81,16 +81,16 @@ class TMFilterView: TMView {
         if !isEnlarge {
             cagFilter.isHidden = false
             pointsFilter.isHidden = false
-            pointsFilter.addAnimation(pointsFilter.layer.position, CGPoint(x: 150, y: bounds.height / 2), 0.15, "position")
-            pointsFilter.layer.position = CGPoint(x: 150, y: bounds.height / 2)
+            pointsFilter.addAnimation(pointsFilter.layer.position, CGPoint(x: 135, y: bounds.height / 2), 0.15, "position")
+            pointsFilter.layer.position = CGPoint(x: 135, y: bounds.height / 2)
             pointsFilter.setupSize()
-            filterBtn.addAnimation(filterBtn.layer.position, CGPoint(x: 244, y: bounds.height / 2), 0.3, "position")
-            filterBtn.layer.position = CGPoint(x: 244, y: bounds.height / 2)
+            filterBtn.addAnimation(filterBtn.layer.position, CGPoint(x: 225, y: bounds.height / 2), 0.3, "position")
+            filterBtn.layer.position = CGPoint(x: 225, y: bounds.height / 2)
         } else {
-            filterBtn.addAnimation(filterBtn.layer.position, CGPoint(x: 56, y: bounds.height / 2), 0.3, "position")
-            filterBtn.layer.position = CGPoint(x: 56, y: bounds.height / 2)
-            pointsFilter.addAnimation(pointsFilter.layer.position, CGPoint(x: 56, y: bounds.height / 2), 0.15, "position")
-            pointsFilter.layer.position = CGPoint(x: 56, y: bounds.height / 2)
+            filterBtn.addAnimation(filterBtn.layer.position, CGPoint(x: 45, y: bounds.height / 2), 0.3, "position")
+            filterBtn.layer.position = CGPoint(x: 45, y: bounds.height / 2)
+            pointsFilter.addAnimation(pointsFilter.layer.position, CGPoint(x: 45, y: bounds.height / 2), 0.15, "position")
+            pointsFilter.layer.position = CGPoint(x: 45, y: bounds.height / 2)
             pointsFilter.setupSize()
         }
     }
@@ -99,49 +99,31 @@ class TMFilterView: TMView {
         let view = super.hitTest(point, with: event)
 
         if CGRectContainsPoint(cagFilter.frame, point) {
-            pointsDS.filterItems.removeAll(where: { $0 == pointsCurIndex })
-            pointsDS.filterItems.insert(pointsCurIndex, at: 0)
-            pointsFilter.reloadData()
             if pointsFilter.toggle == true {
                 pointsFilter.fold()
             }
         } else if CGRectContainsPoint(pointsFilter.frame, point) {
-            cagDS.filterItems.removeAll { $0 == cagCurIndex }
-            cagDS.filterItems.insert(cagCurIndex, at: 0)
-            cagFilter.reloadData()
             if cagFilter.toggle == true {
                 cagFilter.fold()
             }
         } else if CGRectContainsPoint(filterBtn.frame, point) {
-            cagDS.filterItems.removeAll { $0 == cagCurIndex }
-            cagDS.filterItems.insert(cagCurIndex, at: 0)
-            cagFilter.reloadData()
             if cagFilter.toggle == true {
                 cagFilter.fold()
             }
-            pointsDS.filterItems.removeAll(where: { $0 == pointsCurIndex })
-            pointsDS.filterItems.insert(pointsCurIndex, at: 0)
-            pointsFilter.reloadData()
             if pointsFilter.toggle == true {
                 pointsFilter.fold()
             }
         } else {
             if toggle {
-                cagDS.filterItems.removeAll { $0 == cagCurIndex }
-                cagDS.filterItems.insert(cagCurIndex, at: 0)
-                cagFilter.reloadData()
                 if cagFilter.toggle == true {
                     cagFilter.fold()
                 }
-                pointsDS.filterItems.removeAll(where: { $0 == pointsCurIndex })
-                pointsDS.filterItems.insert(pointsCurIndex, at: 0)
-                pointsFilter.reloadData()
                 if pointsFilter.toggle == true {
                     pointsFilter.fold()
                 }
                 scaleTo(toggle)
                 filterBtn.removeTarget(self, action: #selector(applyFilter), for: .touchDown)
-                filterBtn.setTitle("Filter", for: .normal)
+                filterBtn.setTitle("筛选", for: .normal)
                 filterBtn.addTarget(self, action: #selector(showFilter), for: .touchDown)
             }
         }
@@ -151,24 +133,37 @@ class TMFilterView: TMView {
     @objc func showFilter() {
         scaleTo(toggle)
         filterBtn.removeTarget(self, action: #selector(showFilter), for: .touchDown)
-        filterBtn.setTitle("Apply", for: .normal)
+        filterBtn.setTitle("应用", for: .normal)
         filterBtn.addTarget(self, action: #selector(applyFilter), for: .touchDown)
     }
 
     @objc func applyFilter() {
         let selectedCag = cagDS.filterItems[0]
         let selectedPoints = pointsDS.filterItems[0]
-        var filteredComs: [Commodity] = []
-        if comCag(displayName: selectedCag).rawValue == 0 {
-            filteredComs = com
+        var cagFilteredComs: [Commodity] = []
+        var pointFilteredComs: [Commodity] = []
+        if ComCag(displayName: selectedCag).rawValue == 0 {
+            cagFilteredComs = TMUser.commodities
         } else {
-            filteredComs = com.filter { $0.cag == comCag(displayName: selectedCag).rawValue }
+            cagFilteredComs = TMUser.commodities.filter { $0.cag.displayName == selectedCag }
         }
-        (completionHandler ?? { _ in })(filteredComs)
+
+        if comPoint(displayName: selectedPoints).rawValue == 0 {
+            pointFilteredComs = cagFilteredComs
+        } else if comPoint(displayName: selectedPoints).rawValue == 1 {
+            pointFilteredComs = cagFilteredComs.filter { $0.options[0].price < 100 }
+        } else if comPoint(displayName: selectedPoints).rawValue == 2 {
+            pointFilteredComs = cagFilteredComs.filter { $0.options[0].price >= 100 && $0.options[0].price < 500 }
+        } else if comPoint(displayName: selectedPoints).rawValue == 3 {
+            pointFilteredComs = cagFilteredComs.filter { $0.options[0].price > 500 && $0.options[0].price < 1000 }
+        } else if comPoint(displayName: selectedPoints).rawValue == 4 {
+            pointFilteredComs = cagFilteredComs.filter { $0.options[0].price > 1000 }
+        }
+        (completionHandler ?? { _ in })(pointFilteredComs)
 
         scaleTo(toggle)
         filterBtn.removeTarget(self, action: #selector(applyFilter), for: .touchDown)
-        filterBtn.setTitle("Filter", for: .normal)
+        filterBtn.setTitle("筛选", for: .normal)
         filterBtn.addTarget(self, action: #selector(showFilter), for: .touchDown)
         cagCurIndex = cagDS.filterItems[0]
         pointsCurIndex = pointsDS.filterItems[0]
@@ -176,7 +171,7 @@ class TMFilterView: TMView {
 }
 
 class pointsFilterDataSource: NSObject, UITableViewDataSource {
-    var filterItems = ["<100", "100-500", "500-1000", "1000-2000", ">2000"]
+    var filterItems = comPoint.allCases.compactMap { $0.displayName }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         filterItems.count
@@ -192,7 +187,7 @@ class pointsFilterDataSource: NSObject, UITableViewDataSource {
 }
 
 class cagFilterDataSource: NSObject, UITableViewDataSource {
-    var filterItems = comCag.allCases.compactMap { $0.displayName }
+    var filterItems = ComCag.allCases.compactMap { $0.displayName }
 
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         filterItems.count
@@ -207,7 +202,45 @@ class cagFilterDataSource: NSObject, UITableViewDataSource {
     }
 }
 
-enum comCag: Int, CaseIterable {
+enum comPoint: Int, Codable, CaseIterable {
+    case none = 0
+    case small = 1
+    case med = 2
+    case medWell = 3
+    case wellDone = 4
+
+    var displayName: String {
+        switch self {
+        case .none:
+            return "不限"
+        case .small:
+            return "<100"
+        case .med:
+            return "100-500"
+        case .medWell:
+            return "500-1000"
+        case .wellDone:
+            return ">1000"
+        }
+    }
+
+    init(displayName: String) {
+        switch displayName {
+        case ">1000":
+            self = .wellDone
+        case "500-1000":
+            self = .medWell
+        case "100-500":
+            self = .med
+        case "<100":
+            self = .small
+        default:
+            self = .none
+        }
+    }
+}
+
+enum comCag: Int, Codable, CaseIterable {
     case none = 0
     case Decoration = 1
     case ClothingMatching = 2

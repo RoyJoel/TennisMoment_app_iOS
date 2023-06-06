@@ -15,6 +15,8 @@ import UIKit
 class TMUser {
     // 未登录时为默认信息
     static var user = User()
+    // 商品信息
+    static var commodities: [Commodity] = []
 
     static func signIn(completionHandler: @escaping (User?, Error?) -> Void) {
         // 将要加密的字符串连接在一起
@@ -174,5 +176,42 @@ class TMUser {
             return uuid.uuidString
         }
         return nil
+    }
+
+    static func getCartInfo(completionHandler: @escaping (Order) -> Void) {
+        TMNetWork.post("/cart/getInfo", dataParameters: ["id": TMUser.user.cart]) { json in
+            guard let json = json else {
+                return
+            }
+            completionHandler(Order(json: json))
+        }
+    }
+
+    static func addToCart(bill: BillRequest, completionHandler: @escaping (Order) -> Void) {
+        TMNetWork.post("/cart/addBill", dataParameters: bill) { json in
+            guard let json = json else {
+                return
+            }
+            completionHandler(Order(json: json))
+        }
+    }
+
+    static func deleteBillInCart(bill: BillRequest, completionHandler: @escaping (Order) -> Void) {
+        TMNetWork.post("/cart/deleteBill", dataParameters: bill) { json in
+            guard let json = json else {
+                return
+            }
+            completionHandler(Order(json: json))
+        }
+    }
+
+    static func assignCart(order: OrderRequest, completionHandler: @escaping (Int) -> Void) {
+        TMNetWork.post("/cart/assign", dataParameters: order) { json in
+            guard let json = json else {
+                return
+            }
+            TMUser.user.cart = json.intValue
+            completionHandler(json.intValue)
+        }
     }
 }

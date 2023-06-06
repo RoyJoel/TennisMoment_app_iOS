@@ -1,6 +1,6 @@
 //
-//  EDPaymentView.swift
-//  EDMS
+// TMPaymentView.swift
+// TennisMoment
 //
 //  Created by Jason Zhang on 2023/4/27.
 //
@@ -9,7 +9,7 @@ import TMComponent
 import UIKit
 
 class TMPaymentView: UIView, UITableViewDataSource {
-    var paymentConfig = Payment.allCases.compactMap { $0.rawValue }
+    var paymentConfig = payType.allCases.compactMap { $0.displayName }
 
     lazy var titleView: UILabel = {
         let label = UILabel()
@@ -27,12 +27,11 @@ class TMPaymentView: UIView, UITableViewDataSource {
         addSubview(paymentSelectionView)
         titleView.snp.makeConstraints { make in
             make.top.bottom.equalToSuperview()
-            make.left.equalToSuperview().offset(24)
-            make.width.equalTo(108)
+            make.left.equalToSuperview().offset(12)
         }
-        paymentSelectionView.frame = CGRect(x: bounds.width - 122, y: 12, width: 98, height: bounds.height - 24)
+        paymentSelectionView.frame = CGRect(x: bounds.width - 90, y: 12, width: 78, height: bounds.height - 24)
 
-        titleView.font = UIFont.systemFont(ofSize: 20)
+        titleView.font = UIFont.systemFont(ofSize: 15)
         paymentSelectionView.dataSource = self
         paymentSelectionView.delegate = paymentSelectionView
         paymentSelectionView.setupUI()

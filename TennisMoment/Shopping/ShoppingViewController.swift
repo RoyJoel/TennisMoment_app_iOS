@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ShoppingViewController: TMViewController {
-    let layout = TMFlowLayout(itemCount: com.count)
+    var layout = TMFlowLayout(commodities: [])
 
     lazy var titleView: UILabel = {
         let label = UILabel()
@@ -22,8 +22,13 @@ class ShoppingViewController: TMViewController {
     }()
 
     lazy var shoppingCollectionView: TMShoppingCollectionView = {
-        let view = TMShoppingCollectionView(frame: .zero, collectionViewLayout: layout, coms: com)
+        let view = TMShoppingCollectionView(frame: .zero, collectionViewLayout: layout)
         return view
+    }()
+
+    lazy var cartBtn: UIButton = {
+        let btn = UIButton()
+        return btn
     }()
 
     override func viewDidLoad() {
@@ -33,20 +38,40 @@ class ShoppingViewController: TMViewController {
         view.addSubview(titleView)
         view.addSubview(filter)
         view.addSubview(shoppingCollectionView)
+        view.addSubview(cartBtn)
         view.bringSubviewToFront(filter)
 
         titleView.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(24)
-            make.top.equalToSuperview().offset(32)
+            make.top.equalToSuperview().offset(60)
             make.width.equalTo(208)
-            make.height.equalTo(50)
+            make.height.equalTo(44)
         }
 
-        titleView.font = UIFont.systemFont(ofSize: 36)
+        cartBtn.snp.makeConstraints { make in
+            make.right.equalToSuperview().offset(-24)
+            make.top.equalToSuperview().offset(60)
+            make.width.equalTo(44)
+            make.height.equalTo(44)
+        }
 
-        filter.frame = CGRect(x: UIStandard.shared.screenWidth - 136, y: 32, width: 112, height: 44)
+        TMCommodityRequest.getAll { commodities in
+            self.layout = TMFlowLayout(commodities: commodities)
+            self.shoppingCollectionView.collectionViewLayout = self.layout
+            self.shoppingCollectionView.coms = commodities
+            self.layout.collectionView?.reloadData()
+        }
 
-        filter.setup(filter.bounds, filter.layer.position, CGRect(x: 0, y: 0, width: 300, height: filter.bounds.height), CGPoint(x: filter.layer.position.x - 94, y: filter.layer.position.y), 0.3)
+        cartBtn.setImage(UIImage(systemName: "cart"), for: .normal)
+        cartBtn.setCorner(radii: 22)
+        cartBtn.tintColor = UIColor(named: "ContentBackground")
+        cartBtn.backgroundColor = UIColor(named: "ComponentBackground")
+        cartBtn.addTarget(self, action: #selector(enterBillView), for: .touchDown)
+        titleView.font = UIFont.systemFont(ofSize: 24)
+
+        filter.frame = CGRect(x: UIStandard.shared.screenWidth - 170, y: 60, width: 90, height: 44)
+
+        filter.setup(filter.bounds, filter.layer.position, CGRect(x: 0, y: 0, width: 270, height: filter.bounds.height), CGPoint(x: filter.layer.position.x - 28, y: filter.layer.position.y), 0.3)
 
         shoppingCollectionView.snp.makeConstraints { make in
             make.top.equalTo(titleView.snp.bottom).offset(12)
@@ -62,5 +87,12 @@ class ShoppingViewController: TMViewController {
         filter.completionHandler = { coms in
             self.shoppingCollectionView.applyFilter(coms: coms)
         }
+    }
+
+    @objc func enterBillView() {
+        let vc = TMBillTableViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        navigationController?.present(navVC, animated: true)
+        vc.openCartMode()
     }
 }
